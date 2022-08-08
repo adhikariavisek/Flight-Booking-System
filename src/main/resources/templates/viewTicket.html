@@ -1,0 +1,22 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+
+
+<div class = "mainDiv">
+	<div class = "insideMainDiv">
+		<h1 class = "heading">View Ticket</h1>
+		<div class = "topDownInformation" th:object = ${ticket}>
+			<h4 th:text = "*{'From: ' + flight.source}"></h4>
+			<h4 th:text = "*{'To: ' + flight.destination}"></h4>
+			<h4 th:text = "*{'Fare: $' + flight.fare}"></h4>
+			<h4 th:text = "*{'Passenger Name: ' + passenger.name}"></h4>
+			<h4 th:text = "*{'Departure Time: ' + flight.departureTime}"></h4>
+		</div>
+		<div class = "buttonsDiv">
+				<button><a href = "home">Book Next Flight</a></button>
+				<button><a href = "passengerProfile">Your Profile</a></button>
+				<button><a th:href="*{'cancelTicket?id=' + ticket.id}">Cancel Ticket</a></button>
+				<button><a th:href = "*{'changeFlight?id=' + ticket.id}">Change Flight</a></button>
+		</div>
+	</div>
+</div>

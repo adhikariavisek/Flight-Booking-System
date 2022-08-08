@@ -1,0 +1,21 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+<h1 class = "heading">All Tickets</h1>
+
+
+
+<div class = "allFlights" th:each="ticket : ${tickets}" th:object = "${ticket}">
+	<div class = "oneFlight">
+		<h2 th:text = "*{flight.source}"></h2>
+		<h2>-------></h2>
+		<h2 th:text = "*{flight.destination}"></h2>
+		<h2 th:text = "*{'$' + flight.fare}"></h2>
+		<h2 th:text = "*{'Departure: ' + flight.departureTime}"></h2>
+		<button><a th:href = "*{'viewTicket?id=' + id}">View</a></button>
+	</div>
+</div>
+
+<div class = "buttonsDiv">
+<button><a href = "home">Book More Tickets</a></button>
+<button><a href = "passengerProfile">Go Back</a></button>
+</div>

@@ -1,0 +1,27 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+<h1 class = "heading">Flights</h1>
+
+
+
+<div class = "allFlights" th:each="flight : ${flights}" th:object = "${flight}">
+	<div class ="oneFlight">
+		<div class = "time">
+			<h2 th:text = "*{source}"></h2>
+			<p th:text = "*{departureTime}"></p>
+		</div>
+		<h2>-------></h2>
+		<div class = "time">
+			<h2 th:text = "*{destination}"></h2>
+			<p th:text = "*{arrivalInDestinationTime}"></p>
+		</div>
+		<h2 th:text = "*{'$' + fare}"></h2>
+		<h2 th:text = "*{plane.model}"></h2>
+		<div>
+			<button style = "margin: 5px;"><a  th:href="*{'bookingFlight?id=' + id}">Book</a></button>
+		</div>
+	</div>
+</div>
+<div class = "buttonsDiv">
+<button><a th:href = "home">Go Back</a></button>
+</div>

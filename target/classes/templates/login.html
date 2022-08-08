@@ -1,0 +1,19 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+<div class = "mainDiv">
+	<div class = "insideMainDiv">
+		<h1 class = "heading">Login</h1>
+		<form class = "topDownForm" method = "post" action = "validateLogin" th:object = "${passenger}">
+		<h4 class = "directions">Please enter your details as per the label</h4>
+			<label for = "name">Username</label>
+			<input th:field = "*{userName}"/>
+			<label for = "userName">Password</label>
+			<input type = "password" th:field = "*{password}"/>
+			<input class = "submitButton" type = "submit"/>
+		</form>
+		<div class = "buttonsDiv">
+			<button><a href = "home">Home</a></button>
+			<button><a href = "registerPassenger">Don't have an account?</a></button>
+		</div>
+	</div>
+</div>

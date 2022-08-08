@@ -1,0 +1,27 @@
+<link rel = "StyleSheet" href ="style.css"/>
+
+<div class = "mainDiv">
+	<div class = "insideMainDiv">
+		<h1 class = "heading">Edit your details</h1>
+		<form class = "topDownForm" method = "post" action = "editToUpdatePassenger" th:object = "${passenger}">
+		<h4 class = "directions">Please enter your changed details as per the label</h4>
+			<input th:field = "*{id}" hidden>
+			<label for = "name">Name</label>
+			<input required th:field = "*{name}"/>
+			<label for = "email">Email</label>
+			<input required th:field = "*{email}"/>
+			<label required for = "phoneNumber">Phone Number</label>
+			<input th:field = "*{phoneNumber}"/>
+			<label required for = "passportNumber">Passport Number</label>
+			<input th:field = "*{passportNumber}"/>
+			<label for = "userName">Username</label>
+			<input required th:field = "*{userName}"/>
+			<label for = "password">Password</label>
+			<input required type = "password" th:field = "*{password}"/>
+			<input class = "submitButton" type="submit">
+		</form>
+		<div class = "buttonsDiv">
+		<button><a th:href = "home">Go Home</a></button>
+		</div>
+	</div>
+</div>

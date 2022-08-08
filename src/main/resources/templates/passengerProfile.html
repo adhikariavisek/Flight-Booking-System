@@ -1,0 +1,27 @@
+<link rel = "Stylesheet" href = "style.css"/>
+
+
+<div class = "mainDiv">
+<div class = "insideMainDiv">
+<h1 class = "heading" th:text = ${session.passenger.userName}></h1>
+<div class = "passengerProfile">
+	<div class = "details">
+	<div class = "picture">
+	</div>
+	<div class = "topDownInformation" th:object = ${session.passenger}>
+		<h4 th:text = "*{'Name: ' + name}"></h4>
+		<h4 th:text = "*{'email: ' + email}"></h4>
+		<h4 th:text = "*{'Phone No.: ' + phoneNumber}"></h4>
+		<h4 th:text = "*{'Passport No.: ' + passportNumber}"></h4>
+	</div>
+	</div>
+	<div class = "buttonsDiv">
+		<button style = "margin: 5px;"><a href = "logout">LogOut</a></button>
+		<button style = "margin: 5px;"><a href = "home">Home</a></button>
+		<button><a href = "viewAllTickets">View Tickets</a></button>
+		<button><a th:href = "*{'editPassenger?id=' + session.passenger.id}">Edit Details</a></button>
+		<button><a th:href = "deleteAccountConfirmationPage">Delete Account</a></button>
+	</div>
+</div>
+</div>
+</div>

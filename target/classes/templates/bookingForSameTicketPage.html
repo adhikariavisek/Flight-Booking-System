@@ -1,0 +1,21 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+<h1 class = "heading">Select a flight to replace the ticket</h1>
+
+
+
+<div class = "allFlights" th:each="flight : ${flights}" th:object = "${flight}">
+	<div class ="oneFlight">
+		<h2 th:text = "*{source}"></h2>
+		<h2>TO</h2>
+		<h2 th:text = "*{destination}"></h2>
+		<h2 th:text = "*{'$' + fare}"></h2>
+		<h2 th:text = "*{plane.model}"></h2>
+		<div>
+			<button style = "margin: 5px;"><a  th:href="*{'replaceTicket?id=' + id}">Change Flight</a></button>
+		</div>
+	</div>
+</div>
+<div class = "buttonsDiv">
+<button><a th:href = "home">Go Home</a></button>
+</div>
