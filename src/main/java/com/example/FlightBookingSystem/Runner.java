@@ -266,17 +266,32 @@ public class Runner implements ApplicationRunner {
 	
 		Ticket ticket1 = new Ticket(passenger1);
 		Ticket ticket2 = new Ticket(passenger2);
+		Ticket ticket3 = new Ticket(passenger2);
+		Ticket ticket4 = new Ticket(passenger2);
+		Ticket ticket5 = new Ticket(passenger2);
+		Ticket ticket6 = new Ticket(passenger2);
 		
 		ticket1.setFlight(flightsToPerth.get(0));
-		
 		ticket2.setFlight(flightsToPerth.get(0));
+		ticket3.setFlight(flightsToPerth.get(0));
+		ticket4.setFlight(flightsToPerth.get(1));
+		ticket5.setFlight(flightsToPerth.get(1));
+		ticket6.setFlight(flightsToPerth.get(1));
 		
 		ticket1.setSeatNumber(5);
 		ticket2.setSeatNumber(8);
+		ticket3.setSeatNumber(1);
+		ticket4.setSeatNumber(2);
+		ticket5.setSeatNumber(3);
+		ticket6.setSeatNumber(4);
 		
 		ticketRepo.save(ticket1);
 		ticketRepo.save(ticket2);
-
+		ticketRepo.save(ticket3);
+		ticketRepo.save(ticket4);
+		ticketRepo.save(ticket5);
+		ticketRepo.save(ticket6);
+		
 		flightService.getAvailableSeats();
 		
 	}

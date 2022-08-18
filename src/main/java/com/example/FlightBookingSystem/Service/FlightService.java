@@ -1,5 +1,6 @@
 package com.example.FlightBookingSystem.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,10 +68,25 @@ public class FlightService {
 		return flightRepo.returnFlightsOnRoute(source, destination);
 	}
 	
+	public List<Integer> getBookedSeats() {
+		List<Integer> seats = flightRepo.bookedSeatsInFlight(10L);
+//		for(int seat: seats) {
+//			System.out.println(seat);
+//		}
+		return seats;
+	}
+	
 	public void getAvailableSeats() {
-		List<Integer> seats = flightRepo.bookedSeatsInFlight(9L);
-		System.out.println(seats.get(0));
-		System.out.println(seats.get(1));
+		List<Integer> bookedSeats = getBookedSeats();
+		List<Integer> availableSeats = new ArrayList<>();
+		for( int i = 1; i <= 20; i++) {
+			if(bookedSeats.contains(i))
+				continue;
+			availableSeats.add(i);
+		}
+		for(int seats: availableSeats) {
+			System.out.println(seats);
+		}
 	}
 
 }
