@@ -1,4 +1,4 @@
-package com.example.FlightBookingSystem.dal;
+package com.example.FlightBookingSystem.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

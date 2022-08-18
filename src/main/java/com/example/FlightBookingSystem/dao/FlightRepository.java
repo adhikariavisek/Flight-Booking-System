@@ -1,4 +1,4 @@
-package com.example.FlightBookingSystem.dal;
+package com.example.FlightBookingSystem.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,4 +19,7 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 	 */
 	@Query("SELECT f from Flight f where f.source = :source and f.destination = :destination")
 	List<Flight> returnFlightsOnRoute(String source, String destination);
+	
+	@Query("SELECT t.seatNumber from Ticket t INNER JOIN t.flight where t.flight.id = :flightId")
+	List<Integer> bookedSeatsInFlight(Long flightId);
 }

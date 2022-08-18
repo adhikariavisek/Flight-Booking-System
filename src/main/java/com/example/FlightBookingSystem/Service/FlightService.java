@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.FlightBookingSystem.Model.Flight;
-import com.example.FlightBookingSystem.dal.FlightRepository;
+import com.example.FlightBookingSystem.dao.FlightRepository;
 
 @Service
 public class FlightService {
@@ -65,6 +65,12 @@ public class FlightService {
 	 */
 	public List<Flight> flightsOnRoute(String source, String destination) {
 		return flightRepo.returnFlightsOnRoute(source, destination);
+	}
+	
+	public void getAvailableSeats() {
+		List<Integer> seats = flightRepo.bookedSeatsInFlight(9L);
+		System.out.println(seats.get(0));
+		System.out.println(seats.get(1));
 	}
 
 }
