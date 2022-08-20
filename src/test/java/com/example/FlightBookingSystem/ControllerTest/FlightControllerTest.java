@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,6 +29,7 @@ import com.example.FlightBookingSystem.Model.Flight;
 import com.example.FlightBookingSystem.Model.Passenger;
 import com.example.FlightBookingSystem.Model.Ticket;
 import com.example.FlightBookingSystem.Service.FlightService;
+import com.example.FlightBookingSystem.Service.NotificationService;
 import com.example.FlightBookingSystem.Service.PassengerService;
 import com.example.FlightBookingSystem.Service.TicketService;
 
@@ -59,10 +61,13 @@ class FlightControllerTest {
 	
 	@MockBean
 	private FlightService mockFlightService;
+	
+	@Mock
+	private NotificationService mockNotificationService;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		flightController = new FlightController(mockFlightService, mockPassengerService, mockTicketService);
+		flightController = new FlightController(mockFlightService, mockPassengerService, mockTicketService, mockNotificationService);
 	}
 
 	@Test
@@ -162,7 +167,6 @@ class FlightControllerTest {
 		flightController.getSourceAndDestination(mockModel, source, destination, mockHttpSession);
 		
 		verify(mockFlightService).flightsOnRoute(source, destination);
-		
 		verify(mockHttpSession).getAttribute("ticket");
 		
 		String test = "bookingForSameTicketPage";

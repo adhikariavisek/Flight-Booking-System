@@ -68,16 +68,23 @@ public class FlightService {
 		return flightRepo.returnFlightsOnRoute(source, destination);
 	}
 	
-	public List<Integer> getBookedSeats() {
-		List<Integer> seats = flightRepo.bookedSeatsInFlight(10L);
-//		for(int seat: seats) {
-//			System.out.println(seat);
-//		}
+	/**
+	 * Method to get the list of booked seats in a flight
+	 * @param flightId
+	 * @return
+	 */
+	public List<Integer> getBookedSeats(Long flightId) {
+		List<Integer> seats = flightRepo.bookedSeatsInFlight(flightId);
 		return seats;
 	}
 	
-	public void getAvailableSeats() {
-		List<Integer> bookedSeats = getBookedSeats();
+	/**
+	 * Method to get the list of available seats in a flight
+	 * @param flightId
+	 * @return
+	 */
+	public List<Integer> getAvailableSeats(Long flightId) {
+		List<Integer> bookedSeats = getBookedSeats(flightId);
 		List<Integer> availableSeats = new ArrayList<>();
 		for( int i = 1; i <= 20; i++) {
 			if(bookedSeats.contains(i))
@@ -87,6 +94,7 @@ public class FlightService {
 		for(int seats: availableSeats) {
 			System.out.println(seats);
 		}
+		return availableSeats;
 	}
 
 }

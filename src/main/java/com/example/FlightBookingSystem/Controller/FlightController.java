@@ -1,5 +1,7 @@
 package com.example.FlightBookingSystem.Controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -14,9 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.FlightBookingSystem.Model.Flight;
+import com.example.FlightBookingSystem.Model.Notification;
 import com.example.FlightBookingSystem.Model.Passenger;
 import com.example.FlightBookingSystem.Model.Ticket;
 import com.example.FlightBookingSystem.Service.FlightService;
+import com.example.FlightBookingSystem.Service.NotificationService;
 import com.example.FlightBookingSystem.Service.PassengerService;
 import com.example.FlightBookingSystem.Service.TicketService;
 
@@ -28,13 +32,15 @@ public class FlightController {
 	private FlightService flightService;
 	private PassengerService passengerService;
 	private TicketService ticketService;
+	private NotificationService notificationService;
 
 	@Autowired
-	public FlightController(FlightService flightService, PassengerService passengerService, TicketService ticketService) {
+	public FlightController(FlightService flightService, PassengerService passengerService, TicketService ticketService, NotificationService notificationService) {
 		super();
 		this.flightService = flightService;
 		this.passengerService = passengerService;
 		this.ticketService = ticketService;
+		this.notificationService = notificationService;
 	}
 	
 	/**
@@ -100,7 +106,14 @@ public class FlightController {
 		
 		logger.info("Booking done for " + passengerFromDatabase.getName() + " with flight id " + id);
 		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();   
+		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " with flight id " + id , dtf.format(now), false);
+		notification.setPassenger(passengerFromDatabase);
+		notificationService.saveNotification(notification);
+		
 		return "confirmTicket";
+		
 	}
 	
 	/**

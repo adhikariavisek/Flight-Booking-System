@@ -292,8 +292,6 @@ public class Runner implements ApplicationRunner {
 		ticketRepo.save(ticket5);
 		ticketRepo.save(ticket6);
 		
-		flightService.getAvailableSeats();
-		
 	}
 
 }

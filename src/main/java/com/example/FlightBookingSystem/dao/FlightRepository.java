@@ -20,6 +20,11 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 	@Query("SELECT f from Flight f where f.source = :source and f.destination = :destination")
 	List<Flight> returnFlightsOnRoute(String source, String destination);
 	
+	/**
+	 * Method to find the seats that were occupied for a flight to know the available flights
+	 * @param flightId
+	 * @return
+	 */
 	@Query("SELECT t.seatNumber from Ticket t INNER JOIN t.flight where t.flight.id = :flightId")
 	List<Integer> bookedSeatsInFlight(Long flightId);
 }
