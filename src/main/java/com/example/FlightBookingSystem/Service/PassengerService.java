@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.FlightBookingSystem.Model.Passenger;
-import com.example.FlightBookingSystem.dal.PassengerRepository;
+import com.example.FlightBookingSystem.dao.PassengerRepository;
 
 @Service
 public class PassengerService {

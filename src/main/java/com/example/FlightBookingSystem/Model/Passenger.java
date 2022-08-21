@@ -23,6 +23,8 @@ public class Passenger {
 	
 	@OneToMany(mappedBy = "passenger")
 	List<Ticket> tickets;
+	
+
 
 	public Passenger() {
 		super();

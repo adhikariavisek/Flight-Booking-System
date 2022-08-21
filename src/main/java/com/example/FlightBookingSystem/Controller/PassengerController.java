@@ -1,5 +1,7 @@
 package com.example.FlightBookingSystem.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.FlightBookingSystem.Model.Notification;
 import com.example.FlightBookingSystem.Model.Passenger;
+import com.example.FlightBookingSystem.Service.NotificationService;
 import com.example.FlightBookingSystem.Service.PassengerService;
 
 @Controller
@@ -21,12 +25,15 @@ public class PassengerController {
 	
 	private PassengerService passengerService;
 	
+	private NotificationService notificationService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(FlightController.class);
 
 	@Autowired
-	public PassengerController(PassengerService passengerService) {
+	public PassengerController(PassengerService passengerService, NotificationService notificationService) {
 		super();
 		this.passengerService = passengerService;
+		this.notificationService = notificationService;
 	}
 	
 	/**
@@ -118,11 +125,16 @@ public class PassengerController {
 	 * @return the url of user's profile page
 	 */
 	@GetMapping("passengerProfile")
-	public String getPassengerProfile(HttpSession httpSession) {
+	public String getPassengerProfile(HttpSession httpSession, Model model) {
 		if(httpSession.getAttribute("passenger") == null)
 			return "redirect:/login";
-		else
+		else {
+		Passenger passenger = (Passenger)httpSession.getAttribute("passenger");
+		List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
+		int size = notificationService.unreadNotifications(userNotifications);
+		model.addAttribute("unreadNotifications", size);
 		return "passengerProfile";
+		}
 	}
 	
 	/**
@@ -185,6 +197,15 @@ public class PassengerController {
 		httpSession.removeAttribute("passenger");
 		logger.info("User with id " + passenger.getId() + " deleted");
 		return "redirect:/";
+	}
+	
+	@GetMapping("viewNotifications")
+	public String viewAllUnreadNotifications(HttpSession httpSession, Model model) {
+		Passenger passenger = (Passenger)httpSession.getAttribute("passenger");
+		List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
+		model.addAttribute("notifications", userNotifications);
+		notificationService.changeToReadNotifications(userNotifications);
+		return "viewAllNotifications";
 	}
 	
 	

@@ -18,27 +18,35 @@ public class Ticket {
 	@ManyToOne
 	private Passenger passenger;
 	
+	private int seatNumber;
+	
 	public Ticket() {
 		super();
 	}
-	
-	
-	
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
 
 	public Ticket(Passenger passenger) {
 		super();
 		this.passenger = passenger;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	
+
+
+
+	public int getSeatNumber() {
+		return seatNumber;
+	}
+
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	public Flight getFlight() {

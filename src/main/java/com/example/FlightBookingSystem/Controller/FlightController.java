@@ -1,6 +1,10 @@
 package com.example.FlightBookingSystem.Controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -14,9 +18,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.FlightBookingSystem.Model.Flight;
+import com.example.FlightBookingSystem.Model.Notification;
 import com.example.FlightBookingSystem.Model.Passenger;
 import com.example.FlightBookingSystem.Model.Ticket;
 import com.example.FlightBookingSystem.Service.FlightService;
+import com.example.FlightBookingSystem.Service.NotificationService;
 import com.example.FlightBookingSystem.Service.PassengerService;
 import com.example.FlightBookingSystem.Service.TicketService;
 
@@ -28,13 +34,15 @@ public class FlightController {
 	private FlightService flightService;
 	private PassengerService passengerService;
 	private TicketService ticketService;
+	private NotificationService notificationService;
 
 	@Autowired
-	public FlightController(FlightService flightService, PassengerService passengerService, TicketService ticketService) {
+	public FlightController(FlightService flightService, PassengerService passengerService, TicketService ticketService, NotificationService notificationService) {
 		super();
 		this.flightService = flightService;
 		this.passengerService = passengerService;
 		this.ticketService = ticketService;
+		this.notificationService = notificationService;
 	}
 	
 	/**
@@ -61,6 +69,18 @@ public class FlightController {
 		return "bookingPage.html";
 	}
 	
+	@GetMapping("chooseSeat")
+	public String chooseSeatForFlight(@RequestParam Long id, Model model, HttpSession httpSession) {
+		if (httpSession.getAttribute("passenger") == null) {
+			return "redirect:/login";
+		}
+		List<Integer> availableSeats = flightService.getAvailableSeats(id);
+		Flight flight = flightService.findById(id);
+		model.addAttribute("availableSeats", availableSeats);
+		model.addAttribute("flight", flight);
+		return "chooseSeat";
+	}
+	
 	/**
 	 * This method takes the id from the flight and then creates a ticket 
 	 * @param id of the flight
@@ -70,7 +90,8 @@ public class FlightController {
 	 * @throws Exception
 	 */
 	@GetMapping("bookingFlight")
-	public String ticketVerification(@RequestParam Long id, HttpSession httpSession, Model model) throws Exception {
+	public String ticketVerification(@RequestParam("id") Long id, @RequestParam(value = "chooseSeat", required = false) String seatNumber,HttpSession httpSession, Model model) throws Exception {
+		System.out.println(seatNumber);
 		if (httpSession.getAttribute("passenger") == null) {
 			logger.info("User tried to book without logging in");
 			return "redirect:/login";
@@ -100,7 +121,14 @@ public class FlightController {
 		
 		logger.info("Booking done for " + passengerFromDatabase.getName() + " with flight id " + id);
 		
+		String time = notificationService.currentTime();
+		
+		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " with flight id " + id , time , false);
+		notification.setPassenger(passengerFromDatabase);
+		notificationService.saveNotification(notification);
+		
 		return "confirmTicket";
+		
 	}
 	
 	/**
@@ -126,6 +154,7 @@ public class FlightController {
 				logger.info("Flight changed for ticket with id " + ticket.getId());
 				return "bookingForSameTicketPage";
 			}
+			
 			return "allFlightDetails";
 		}
 	}

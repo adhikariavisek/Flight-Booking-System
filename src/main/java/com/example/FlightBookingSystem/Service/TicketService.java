@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.FlightBookingSystem.Model.Ticket;
-import com.example.FlightBookingSystem.dal.TicketRepository;
+import com.example.FlightBookingSystem.dao.TicketRepository;
 
 @Service
 public class TicketService {

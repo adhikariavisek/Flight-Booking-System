@@ -1,4 +1,4 @@
-package com.example.FlightBookingSystem.dal;
+package com.example.FlightBookingSystem.dao;
 
 import java.util.List;
 

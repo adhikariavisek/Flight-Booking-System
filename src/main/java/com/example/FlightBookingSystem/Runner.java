@@ -14,10 +14,11 @@ import com.example.FlightBookingSystem.Model.Flight;
 import com.example.FlightBookingSystem.Model.Passenger;
 import com.example.FlightBookingSystem.Model.Plane;
 import com.example.FlightBookingSystem.Model.Ticket;
-import com.example.FlightBookingSystem.dal.FlightRepository;
-import com.example.FlightBookingSystem.dal.PassengerRepository;
-import com.example.FlightBookingSystem.dal.PlaneRepository;
-import com.example.FlightBookingSystem.dal.TicketRepository;
+import com.example.FlightBookingSystem.Service.FlightService;
+import com.example.FlightBookingSystem.dao.FlightRepository;
+import com.example.FlightBookingSystem.dao.PassengerRepository;
+import com.example.FlightBookingSystem.dao.PlaneRepository;
+import com.example.FlightBookingSystem.dao.TicketRepository;
 
 @Component
 public class Runner implements ApplicationRunner {
@@ -26,17 +27,19 @@ public class Runner implements ApplicationRunner {
 	private PassengerRepository passengerRepo;
 	private PlaneRepository planeRepo;
 	private TicketRepository ticketRepo;
+	private FlightService flightService;
 	
 	
 	
 	@Autowired
 	public Runner(FlightRepository flightRepo, PassengerRepository passengerRepo, PlaneRepository planeRepo,
-			TicketRepository ticketRepo) {
+			TicketRepository ticketRepo, FlightService flightService) {
 		super();
 		this.flightRepo = flightRepo;
 		this.passengerRepo = passengerRepo;
 		this.planeRepo = planeRepo;
 		this.ticketRepo = ticketRepo;
+		this.flightService = flightService;
 	}
 
 
@@ -52,12 +55,12 @@ public class Runner implements ApplicationRunner {
 		Passenger passenger2 = new Passenger("Anupam Adhikari", "anup", "54321", "adhikarianupam@gmail.com", 11145345L, 0413534116354L);
 		passengerRepo.save(passenger2);
 		
-		Plane plane1 = new Plane(150, "T501", null);
-		Plane plane2 = new Plane(240, "T503", null);
-		Plane plane3 = new Plane(150, "A-T1Z", null);
-		Plane plane4 = new Plane(240, "T502", null);
-		Plane plane5 = new Plane(150, "Alpha-1", null);
-		Plane plane6 = new Plane(240, "Beta-B", null);
+		Plane plane1 = new Plane(20, "T501", null);
+		Plane plane2 = new Plane(20, "T503", null);
+		Plane plane3 = new Plane(20, "A-T1Z", null);
+		Plane plane4 = new Plane(20, "T502", null);
+		Plane plane5 = new Plane(20, "Alpha-1", null);
+		Plane plane6 = new Plane(20, "Beta-B", null);
 		
 		planeRepo.save(plane1);
 		planeRepo.save(plane2);
@@ -260,8 +263,34 @@ public class Runner implements ApplicationRunner {
 		for(Flight flight : flightsToSydney) {
 			flightRepo.save(flight);
 		}
+	
+		Ticket ticket1 = new Ticket(passenger1);
+		Ticket ticket2 = new Ticket(passenger2);
+		Ticket ticket3 = new Ticket(passenger2);
+		Ticket ticket4 = new Ticket(passenger2);
+		Ticket ticket5 = new Ticket(passenger2);
+		Ticket ticket6 = new Ticket(passenger2);
 		
-
+		ticket1.setFlight(flightsToPerth.get(0));
+		ticket2.setFlight(flightsToPerth.get(0));
+		ticket3.setFlight(flightsToPerth.get(0));
+		ticket4.setFlight(flightsToPerth.get(1));
+		ticket5.setFlight(flightsToPerth.get(1));
+		ticket6.setFlight(flightsToPerth.get(1));
+		
+		ticket1.setSeatNumber(5);
+		ticket2.setSeatNumber(8);
+		ticket3.setSeatNumber(1);
+		ticket4.setSeatNumber(2);
+		ticket5.setSeatNumber(3);
+		ticket6.setSeatNumber(4);
+		
+		ticketRepo.save(ticket1);
+		ticketRepo.save(ticket2);
+		ticketRepo.save(ticket3);
+		ticketRepo.save(ticket4);
+		ticketRepo.save(ticket5);
+		ticketRepo.save(ticket6);
 		
 	}
 

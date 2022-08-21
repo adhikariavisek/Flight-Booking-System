@@ -1,12 +1,13 @@
 package com.example.FlightBookingSystem.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.FlightBookingSystem.Model.Flight;
-import com.example.FlightBookingSystem.dal.FlightRepository;
+import com.example.FlightBookingSystem.dao.FlightRepository;
 
 @Service
 public class FlightService {
@@ -65,6 +66,35 @@ public class FlightService {
 	 */
 	public List<Flight> flightsOnRoute(String source, String destination) {
 		return flightRepo.returnFlightsOnRoute(source, destination);
+	}
+	
+	/**
+	 * Method to get the list of booked seats in a flight
+	 * @param flightId
+	 * @return
+	 */
+	public List<Integer> getBookedSeats(Long flightId) {
+		List<Integer> seats = flightRepo.bookedSeatsInFlight(flightId);
+		return seats;
+	}
+	
+	/**
+	 * Method to get the list of available seats in a flight
+	 * @param flightId
+	 * @return
+	 */
+	public List<Integer> getAvailableSeats(Long flightId) {
+		List<Integer> bookedSeats = getBookedSeats(flightId);
+		List<Integer> availableSeats = new ArrayList<>();
+		for( int i = 1; i <= 20; i++) {
+			if(bookedSeats.contains(i))
+				continue;
+			availableSeats.add(i);
+		}
+		for(int seats: availableSeats) {
+			System.out.println(seats);
+		}
+		return availableSeats;
 	}
 
 }

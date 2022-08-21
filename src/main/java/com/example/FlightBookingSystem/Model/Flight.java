@@ -43,6 +43,8 @@ public class Flight {
 	}
 	
 	
+		
+	
 
 	public Long getId() {
 		return id;
@@ -113,6 +115,8 @@ public class Flight {
 		return "Flight [source=" + source + ", destination=" + destination + ", departureTime=" + departureTime
 				+ ", arrivalInDestinationTime=" + arrivalInDestinationTime + ", plane=" + plane +"]";
 	}
+	
+	
 	
 	
 	

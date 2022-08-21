@@ -18,7 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.FlightBookingSystem.Model.Ticket;
 import com.example.FlightBookingSystem.Service.TicketService;
-import com.example.FlightBookingSystem.dal.TicketRepository;
+import com.example.FlightBookingSystem.dao.TicketRepository;
 
 @ExtendWith(MockitoExtension.class)
 class TicketServiceTest {
