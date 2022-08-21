@@ -1,0 +1,24 @@
+<link rel = "StyleSheet" href = "style.css"/>
+
+<div class = "mainDiv">
+	<div class = "insideMainDiv">
+		<h1 class = "heading">Choose A seat for the Flight with details</h1>
+		<div class = "topDownInformation" th:object = ${flight}>
+			<h4 th:text = "*{'From: ' + source}"></h4>
+			<h4 th:text = "*{'To: ' + destination}"></h4>
+			<h4 th:text = "*{'Fare: $' + fare}"></h4>
+			<h4 th:text = "*{'Departure Time: ' + departureTime}"></h4>
+			<label for = "chooseSeat">Select a seat</label>
+			<select th:name = "chooseSeat">
+			<option value = "Check">Cheking</option>
+			<option value = "Checking">Check</option>
+			</select>
+		</div>
+
+		<div class = "buttonsDiv">
+		<button style = "margin: 5px;"><a th:href="${'bookingFlight?id=' + flight.id}">Proceed</a></button>
+		<button style = "margin: 5px;"><a th:href="home">Go back</a></button>
+		</div>
+		</div>
+	</div>
+</div>

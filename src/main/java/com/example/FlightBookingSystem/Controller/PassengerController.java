@@ -205,7 +205,7 @@ public class PassengerController {
 		List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
 		model.addAttribute("notifications", userNotifications);
 		notificationService.changeToReadNotifications(userNotifications);
-		return "viewNotifications";
+		return "viewAllNotifications";
 	}
 	
 	

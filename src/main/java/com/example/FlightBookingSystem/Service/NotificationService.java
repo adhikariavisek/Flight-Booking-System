@@ -1,5 +1,7 @@
 package com.example.FlightBookingSystem.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,17 @@ public class NotificationService {
 			notification.setRead(true);
 			notificationRepo.save(notification);
 		}
+	}
+	
+	public String currentTime() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();   
+		return dtf.format(now);
+	}
+
+	public void remove(Long id) {
+		notificationRepo.deleteById(id);
+		
 	}
 	
 	
