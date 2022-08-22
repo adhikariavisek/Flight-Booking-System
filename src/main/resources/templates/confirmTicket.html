@@ -9,6 +9,7 @@
 			<h4 th:text = "*{'Fare: $' + flight.fare}"></h4>
 			<h4 th:text = "*{'Passenger Name: ' + passenger.name}"></h4>
 			<h4 th:text = "*{'Departure Time: ' + flight.departureTime}"></h4>
+			<h4 th:text = "*{'Seat Number: ' + seatNumber}"></h4>
 		</div>
 		<div class = "buttonsDiv">
 		<button style = "margin: 5px;"><a th:href="*{'deleteTicket?id=' + ticket.id}">Delete</a></button>

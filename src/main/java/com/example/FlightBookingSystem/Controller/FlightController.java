@@ -90,8 +90,7 @@ public class FlightController {
 	 * @throws Exception
 	 */
 	@GetMapping("bookingFlight")
-	public String ticketVerification(@RequestParam("id") Long id, @RequestParam(value = "chooseSeat", required = false) String seatNumber,HttpSession httpSession, Model model) throws Exception {
-		System.out.println(seatNumber);
+	public String ticketVerification(@RequestParam("flightId") Long id, @RequestParam(value = "bookedSeat") int seatNumber,HttpSession httpSession, Model model) throws Exception {
 		if (httpSession.getAttribute("passenger") == null) {
 			logger.info("User tried to book without logging in");
 			return "redirect:/login";
@@ -113,6 +112,7 @@ public class FlightController {
 		passengerFromDatabase.setTickets(ticketsForPassenger);
 		passengerService.savePassenger(passengerFromDatabase);
 		
+		ticket.setSeatNumber(seatNumber);
 		ticketService.saveTicket(ticket);
 		
 		httpSession.setAttribute("passenger", passengerFromDatabase);
@@ -123,7 +123,7 @@ public class FlightController {
 		
 		String time = notificationService.currentTime();
 		
-		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " with flight id " + id , time , false);
+		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " for seat " + seatNumber + "in flight from " + flight.getSource() + " to " + flight.getDestination(), time , false);
 		notification.setPassenger(passengerFromDatabase);
 		notificationService.saveNotification(notification);
 		

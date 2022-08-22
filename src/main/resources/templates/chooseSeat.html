@@ -8,17 +8,19 @@
 			<h4 th:text = "*{'To: ' + destination}"></h4>
 			<h4 th:text = "*{'Fare: $' + fare}"></h4>
 			<h4 th:text = "*{'Departure Time: ' + departureTime}"></h4>
-			<label for = "chooseSeat">Select a seat</label>
-			<select th:name = "chooseSeat">
-			<option value = "Check">Cheking</option>
-			<option value = "Checking">Check</option>
-			</select>
 		</div>
+			<form class = "seatSelectForm" th:action = "bookingFlight">
+			<input th:name = "flightId" th:value = "${flight.id}" hidden>
+			<label for = "chooseSeat">Select a seat</label>
+			<select th:name = "bookedSeat">
+			<option th:each = "availableSeat : ${availableSeats}" th:value = ${availableSeat} th:text = ${availableSeat}></option>
+			</select>
+			<input class = "homePageSubmitButton" type = "submit" value = "Confirm Seat">
 
 		<div class = "buttonsDiv">
-		<button style = "margin: 5px;"><a th:href="${'bookingFlight?id=' + flight.id}">Proceed</a></button>
 		<button style = "margin: 5px;"><a th:href="home">Go back</a></button>
 		</div>
+		</form>
 		</div>
 	</div>
 </div>

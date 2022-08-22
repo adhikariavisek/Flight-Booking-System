@@ -88,11 +88,14 @@ public class PassengerController {
 	 * @return url of the passenger profile or redirect to failedLogin page based on the search result of username and password
 	 */
 	@PostMapping("validateLogin")
-	public String validateLoginProcess(HttpSession httpSession, @ModelAttribute Passenger passenger) {
+	public String validateLoginProcess(HttpSession httpSession, @ModelAttribute Passenger passenger, Model model) {
 		Passenger loggedInPassenger = passengerService.checkLogin(passenger.getUserName(), passenger.getPassword());
 		if(loggedInPassenger != null) {
 			httpSession.setAttribute("passenger", loggedInPassenger);
 			logger.info("Login Successful");
+			List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
+			int size = notificationService.unreadNotifications(userNotifications);
+			model.addAttribute("unreadNotifications", size);
 			return "passengerProfile";
 		}
 		else

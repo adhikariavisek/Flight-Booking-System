@@ -3,15 +3,16 @@
 <h1 class = "heading">All Notifications</h1>
 
 
-
+<h2 th:if = "${notifications.isEmpty}" style = "text-align : center ; padding-top : 10;">No notifications</h2>
 <div class = "allFlights" th:each="notification : ${notifications}" th:object = "${notification}">
 	<div class = "oneFlight">
 		<h2 th:text = "*{message}"></h2>
 		<h2>-------></h2>
 		<h2 th:text = "*{createdAt}"></h2>
-		<button><a th:href = "*{'deleteNotification?id=' + id}">Don't Press</a></button>
+		<button><a th:href = "*{'deleteNotification?id=' + id}">Done</a></button>
 	</div>
 </div>
+
 
 <div class = "buttonsDiv">
 <button><a href = "home">Book More Tickets</a></button>

@@ -91,9 +91,6 @@ public class FlightService {
 				continue;
 			availableSeats.add(i);
 		}
-		for(int seats: availableSeats) {
-			System.out.println(seats);
-		}
 		return availableSeats;
 	}
 

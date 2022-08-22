@@ -139,11 +139,16 @@ button:hover {
 
 .notification .badge {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -25px;
+  right: -13px;
   padding: 5px 10px;
   border-radius: 50%;
   background: red;
   color: white;
+}
+
+.seatSelectForm{
+	padding-left: 10;
+	padding-top : 10;
 }
 

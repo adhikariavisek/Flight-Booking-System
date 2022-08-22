@@ -34,11 +34,11 @@
 				<option value = "Adelaide">Adelaide</option>
 				<option value = "Perth" selected>Perth</option>
 			</select>
-			<input class = "homePageSubmitButton" type = "submit"/>
+			<input class = "homePageSubmitButton" type = "submit" value = "Check Flights"/>
 		</form>
 		<div class = "buttonsDiv">
-			<button><a href = "login">Login</a></button>
-			<button><a href = "passengerProfile">Your Profile</a></button>
+			<button th:if = "${session.size()} == 0"><a href = "login">Login</a></button>
+			<button th:if = "${session.size()} &gt; 0"><a href = "passengerProfile">Your Profile</a></button>
 		</div>
 	</div>
 

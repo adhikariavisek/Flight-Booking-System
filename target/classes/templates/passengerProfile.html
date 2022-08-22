@@ -21,9 +21,9 @@
 		<button><a href = "viewAllTickets">View Tickets</a></button>
 		<button><a th:href = "*{'editPassenger?id=' + session.passenger.id}">Edit Details</a></button>
 		<button><a th:href = "deleteAccountConfirmationPage">Delete Account</a></button>
-		<button><a href="viewNotifications" class="notification">
- 			 <span>New Notifications</span>
- 			 <span class="badge" th:text = "${unreadNotifications}"></span>
+		<button><a href="viewAllNotifications" class="notification">
+ 			 <span>Notifications</span>
+ 			 <span class="badge" th:if = "${unreadNotifications} &gt; 0"  th:text = "${unreadNotifications}"></span>
 		</a>
 		</button>
 	</div>
