@@ -4,151 +4,191 @@
   box-sizing: border-box;
 }
 
-a{
-	color: white;
-	text-decoration: none;
+@font-face {
+  font-family: "Ruhl";
+  src: url("/Fonts/FrankRuhlLibre-Regular.ttf");
 }
 
-.allFlights{
-
+@font-face {
+  font-family: "Ruhl Medium";
+  src: url("/Fonts/FrankRuhlLibre-Medium.ttf");
 }
 
-.oneFlight{
-	display:flex;
-	flex-direction: row;
-	justify-content: space-between;
-	border-style:solid;
-	border-color:black;
-	margin-bottom: 10px;
-	padding: 10px;
+html {
+  font-size: 62.5%;
+  --heading1: calc(2rem + 1vw);
+  --text: calc(0.7rem + 1vw);
+  --small-text: calc(0.5rem + 1vw / 2);
+  --main-width: 80%;
 }
 
-.heading{
-	text-align: center;
-	background-color : teal;
-	color : white;
+body {
+  font-family: "Ruhl", sans-serif;
 }
 
-button{
-	background-color : teal;
-	padding : 7px;
-	margin : 5px;
-	
-	
-}
-
-button:hover {
-  background: rgba(3,107,141, 0.5);
-}
-
-
-.insideMainDiv{
-	width: 500px;
-	border-style:solid;
-	border-color:black;
-	margin-bottom: 10px;
-
-	
-}
-
-.mainDiv{
-	margin-top : 20px;
-	display : flex;
-	justify-content : center;
-
-}
-
-.flightForm{
-	display: flex;
-	justify-content: space-around;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 50px;
-
-}
-
-.buttonsDiv{
-	padding-top: 20px;
-	display: flex;
-	justify-content: center;
-}
-
-.topDownForm{
-	padding: 15px;
-	display: flex;
-	flex-direction: column;
-}
-
-.submitButton{
-	margin-top : 10px;
-	margin-left : 200px;
-	margin-right : 200px;
-	background-color : teal;
-	color : white;
-	padding : 7px;
-}
-
-.submitButton:hover {
-  background: rgba(3,107,141, 0.5);
-}
-
-.homePageSubmitButton{
-	background-color : teal;
-	color : white;
-}
-
-.homePageSubmitButton:hover {
-  background: rgba(3,107,141, 0.5);
-}
-
-.directions{
-	margin-bottom : 10px;
-}
-
-.topDownInformation{
-	display : flex;
-	flex-direction : column;
-	align-items : flex-start;
-	padding-left : 10px;
-}
-
-.details{
-	display: flex;
-	justify-content: space-around;
-	padding-top: 10px;
-}
-
-.picture{
-	border-style:solid;
-	border-color:black;
-	padding-left: 100;
-}
-
-.notification {
-  background-color: teal;
-  color: white;
+a {
   text-decoration: none;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
+  color: black;
 }
 
-.notification:hover {
-  background: rgba(3,107,141, 0.5);
+ul {
+  list-style: none;
 }
 
-.notification .badge {
-  position: absolute;
-  top: -25px;
-  right: -13px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  background: red;
+li,
+p {
+  font-size: var(--text);
+}
+
+h1 {
+  font-size: var(--heading1);
+}
+
+/* Header Section */
+
+nav {
+  width: var(--main-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  padding: 2rem 0rem;
+}
+
+.nav-links {
+  display: flex;
+  flex: 1 1 20rem;
+  justify-content: flex-end;
+}
+
+#logo {
+  flex: 3 1 20rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.individual-links-left {
+  padding: 0 0 0 2rem;
+}
+
+.individual-links-right {
+  padding: 0 2rem 0 0;
+}
+
+.second-nav {
+  background-color: rgb(61, 61, 61);
+  min-height: 10vh;
+  padding: 2rem 0rem;
+  display: flex;
+}
+
+.black-background {
   color: white;
 }
 
-.seatSelectForm{
-	padding-left: 10;
-	padding-top : 10;
+.second-nav-links {
+  width: var(--main-width);
+  margin: auto;
 }
 
+/* Hero Section */
+.hero {
+  background-image: url("img/Background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.hero-intro {
+  height: 200px;
+  width: 50%;
+  margin: auto;
+  background-color: rgb(58, 58, 58);
+  position: absolute;
+  bottom: 3rem;
+  left: 25%;
+  opacity: 0.9;
+}
+
+/* Deals Section */
+.deals {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: rgb(231, 231, 231);
+}
+
+.deals-view {
+  width: var(--main-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.deal {
+  width: calc(90% / 3);
+  min-width: 30rem;
+  height: 150px;
+  background-color: white;
+  position: relative;
+}
+
+.is-deal {
+  position: absolute;
+  width: calc(100% / 3);
+  padding: 0.3rem 0;
+  top: 0;
+  right: 0;
+  background-color: red;
+  margin: 0 0.5rem;
+  text-align: center;
+  color: white;
+}
+
+.deal-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.price {
+  position: absolute;
+  color: red;
+  bottom: 0;
+  right: 0;
+  margin: 0.5rem;
+}
+
+.price-info {
+  position: absolute;
+  bottom: calc(1rem + var(--text));
+  right: 0;
+  margin: 0.5rem;
+  font-size: var(--small-text);
+}
+
+/* Footer section */
+
+.foot {
+  width: var(--main-width);
+  min-height: 10vh;
+  margin: auto;
+  padding: 2rem 0;
+  display: flex;
+}
+
+.trademark {
+  flex: 1 1 20rem;
+}
+
+footer li a {
+  color: black;
+}

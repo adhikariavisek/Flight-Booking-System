@@ -211,5 +211,10 @@ public class PassengerController {
 		return "viewAllNotifications";
 	}
 	
+	@GetMapping("demo")
+	public String goToDemo() {
+		return "demo";
+	}
+	
 	
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A Flight Booking System based on Quantas Website"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FDM Flight Booking System</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <a id="logo" href="https:/www.google.com"
+          ><h1>FDM Flight Booking</h1></a
+        >
+        <ul class="nav-links">
+          <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "login">Login</a></li>
+          <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "registerPassenger">SignUp</a></li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left">User Profile</li>
+        </ul>
+      </nav>
+      <section class="second-nav">
+        <div class="second-nav-links">
+          <ul class="flex-row">
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Book A flight</a>
+            </li>
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Option 2</a>
+            </li>
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Option 3</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-intro">
+          <form>
+            <select>
+              <option value="Sydney">Sydney</option>
+              <option value="Melbourne">Melbourne</option>
+              <option value="Brisbane">Brisbane</option>
+            </select>
+          </form>
+        </div>
+      </section>
+      <section class="deals">
+        <div class="deals-view">
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Gold Coast</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$119</li>
+            </ul>
+          </div>
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Perth</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$250</li>
+            </ul>
+          </div>
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Melbourne</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$150</li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+      <section class="contact"></section>
+      <section class="gallery"></section>
+    </main>
+    <footer>
+      <section class="foot">
+        <h1 class="trademark">Avisek &copy; 2022</h1>
+        <ul class="nav-links">
+          <li class="individual-links-left">
+            <a href="#"
+              ><img src="/img/instagram 1.svg" alt="instagram-social-media"
+            /></a>
+          </li>
+          <li class="individual-links-left">Twitter</li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>
