@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @font-face {
@@ -20,54 +21,76 @@ html {
   --text: calc(0.7rem + 1vw);
   --small-text: calc(0.5rem + 1vw / 2);
   --main-width: 80%;
+  --svg-color: black;
 }
 
-body {
+html img {
+  max-width: 100%;
+  height: auto;
+}
+
+html body {
   font-family: "Ruhl", sans-serif;
 }
 
-a {
+html a {
   text-decoration: none;
   color: black;
 }
 
-ul {
+html ul {
   list-style: none;
 }
 
-li,
-p {
+html li,
+html p {
   font-size: var(--text);
 }
 
-h1 {
+html h1 {
   font-size: var(--heading1);
 }
 
 /* Header Section */
-
 nav {
   width: var(--main-width);
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-height: 10vh;
   padding: 2rem 0rem;
 }
 
-.nav-links {
+nav .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 1 1 20rem;
-  justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20rem;
+          flex: 1 1 20rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 #logo {
-  flex: 3 1 20rem;
+  -webkit-box-flex: 3;
+      -ms-flex: 3 1 20rem;
+          flex: 3 1 20rem;
 }
 
 .flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .individual-links-left {
@@ -76,17 +99,47 @@ nav {
 
 .individual-links-right {
   padding: 0 2rem 0 0;
+  position: relative;
 }
 
 .second-nav {
-  background-color: rgb(61, 61, 61);
+  background-color: #3d3d3d;
   min-height: 10vh;
   padding: 2rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.second-nav li {
+  display: relative;
+}
+
+.second-nav a:hover {
+  color: red;
+}
+
+.second-nav li:hover .dropdown-content {
+  display: block;
 }
 
 .black-background {
   color: white;
+}
+
+.white-background {
+  color: black;
 }
 
 .second-nav-links {
@@ -96,7 +149,7 @@ nav {
 
 /* Hero Section */
 .hero {
-  background-image: url("img/Background.jpg");
+  background-image: url("./img/Background.jpg");
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -104,34 +157,110 @@ nav {
   position: relative;
 }
 
-.hero-intro {
-  height: 200px;
-  width: 50%;
+.hero .hero-intro {
+  height: 150px;
+  width: 70%;
+  max-width: 1000px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   margin: auto;
-  background-color: rgb(58, 58, 58);
+  background-color: #3a3a3a;
   position: absolute;
   bottom: 3rem;
-  left: 25%;
   opacity: 0.9;
+  overflow: hidden;
+}
+
+.hero .bar-button {
+  width: 100%;
+  height: 35%;
+}
+
+.hero .bar-button .active-bar {
+  width: 100%;
+  height: 100%;
+}
+
+.hero .bar-button .selected-active-bar {
+  background-color: red;
+  height: 10%;
+  width: 100%;
+}
+
+.hero .bar-button .tab-button {
+  width: 100%;
+  height: 90%;
+  border-radius: 0;
+}
+
+.hero .tab-container {
+  width: 90%;
+  margin: auto;
+  height: 65%;
+}
+
+.hero .tab-container .booking-form {
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hero .tab-container .booking-form select {
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+  height: 40px;
+}
+
+.hero .tab-container .booking-form option {
+  font-size: 2rem;
+}
+
+.hero .tab-container .booking-form .place-select {
+  width: 40%;
+  height: 30px;
+}
+
+.hero .tab-container .booking-form .submit-button {
+  width: 13%;
+  height: 25px;
+  border: none;
+}
+
+.hero .tab-container .booking-form .submit-button:hover {
+  background-color: black;
 }
 
 /* Deals Section */
 .deals {
   width: 100%;
   padding: 5rem 0;
-  background-color: rgb(231, 231, 231);
+  background-color: #e7e7e7;
 }
 
-.deals-view {
+.deals .deals-view {
   width: var(--main-width);
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.deal {
+.deals .deal {
   width: calc(90% / 3);
   min-width: 30rem;
   height: 150px;
@@ -139,7 +268,7 @@ nav {
   position: relative;
 }
 
-.is-deal {
+.deals .is-deal {
   position: absolute;
   width: calc(100% / 3);
   padding: 0.3rem 0;
@@ -151,15 +280,22 @@ nav {
   color: white;
 }
 
-.deal-info {
+.deals .deal-info {
   padding: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
 }
 
-.price {
+.deals .deal-info .price {
   position: absolute;
   color: red;
   bottom: 0;
@@ -167,7 +303,7 @@ nav {
   margin: 0.5rem;
 }
 
-.price-info {
+.deals .deal-info .price-info {
   position: absolute;
   bottom: calc(1rem + var(--text));
   right: 0;
@@ -175,20 +311,76 @@ nav {
   font-size: var(--small-text);
 }
 
-/* Footer section */
+/*Gallery Section */
+.gallery {
+  width: var(--main-width);
+  margin: auto;
+}
 
-.foot {
+.gallery .place-description {
+  padding: 5rem 0;
+  width: calc(80vw / 2.1);
+  min-width: 40rem;
+}
+
+.gallery .place-description h1 {
+  font-size: 2.5rem;
+  padding: 0.5rem 0;
+}
+
+.gallery .place-description p {
+  text-align: justify;
+  padding-bottom: 0.5rem;
+}
+
+.gallery .place-description a {
+  font-size: 1.7rem;
+  color: red;
+}
+
+.gallery .gallery-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gallery img {
+  width: calc(80vw / 2.1);
+  min-width: 40rem;
+  height: 400px;
+  min-height: 10vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: center;
+}
+
+/* Footer section */
+footer {
+  background-color: #e7e7e7;
+}
+
+footer .foot {
   width: var(--main-width);
   min-height: 10vh;
   margin: auto;
   padding: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
-.trademark {
-  flex: 1 1 20rem;
+footer .trademark {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20rem;
+          flex: 1 1 20rem;
 }
-
-footer li a {
-  color: black;
-}
+/*# sourceMappingURL=styles.css.map */

@@ -29,12 +29,25 @@
           <ul class="flex-row">
             <li class="individual-links-right">
               <a class="black-background" href="#">Book A flight</a>
+              <div class="dropdown-content">
+                <p>Booking</p>
+                <p>Hotel</p>
+                <p>Bonjour</p>
+                <p>France</p>
+              </div>
+            </li>
+
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Lorem, ipsum</a>
+              <div class="dropdown-content">
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+              </div>
             </li>
             <li class="individual-links-right">
-              <a class="black-background" href="#">Option 2</a>
-            </li>
-            <li class="individual-links-right">
-              <a class="black-background" href="#">Option 3</a>
+              <a class="black-background" href="#">Lorem, ipsum</a>
             </li>
           </ul>
         </div>
@@ -43,13 +56,48 @@
     <main>
       <section class="hero">
         <div class="hero-intro">
-          <form>
-            <select>
-              <option value="Sydney">Sydney</option>
-              <option value="Melbourne">Melbourne</option>
-              <option value="Brisbane">Brisbane</option>
-            </select>
-          </form>
+          <div class="bar-button flex-row w3-black">
+            <div class="active-bar">
+              <div class="selected-active-bar"></div>
+              <button
+                class="tab-button w3-button"
+                onclick="openCity('Booking')"
+              >
+                Booking
+              </button>
+            </div>
+            <div class="active-bar">
+              <div class="selected-active-bar"></div>
+              <button class="tab-button w3-button" onclick="openCity('Search')">
+                Search
+              </button>
+            </div>
+          </div>
+
+          <div id="Booking" class="tab-container city">
+            <form class="booking-form flex-row" action="">
+              <select id="source-place" class="place-select">
+                <option value="" selected disabled hidden>From</option>
+                <option value="">Sydney</option>
+                <option value="">Melbourne</option>
+                <option value="">Adelaide</option>
+                <option value="">Perth</option>
+              </select>
+              <select id="destination-place" class="place-select">
+                <option value="" selected disabled hidden>To</option>
+                <option value="">Sydney</option>
+                <option value="">Melbourne</option>
+                <option value="">Adelaide</option>
+                <option value="">Perth</option>
+              </select>
+              <input type="submit" class="submit-button" value="See flights" />
+            </form>
+          </div>
+
+          <div id="Search" class="tab-container city" style="display: none">
+            <h2>Tokyo</h2>
+            <p>Tokyo is the capital of Japan.</p>
+          </div>
         </div>
       </section>
       <section class="deals">
@@ -84,24 +132,76 @@
               <li class="price">$150</li>
             </ul>
           </div>
-          
+        </div>
+      </section>
+      <section class="gallery">
+        <div class="gallery-view">
+          <div class="place-description">
+            <img src="./img/Melbourne.jpg" alt="image-of-place" />
+            <h1>Travel to Melbourne</h1>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Suscipit, sint eum, eaque rerum quo totam fuga atque eius ipsam
+              adipisci ad nostrum quos odit rem nihil sapiente quas delectus
+              soluta.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
+          <div class="place-description">
+            <img src="./img/Sydney.jpg" alt="image-of-place" />
+            <h1>Vacation in Sydney</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
+              autem.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
+          <div class="place-description">
+            <img src="./img/Perth.jpg" alt="image-of-place" />
+            <h1>Visit your family in Perth</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+              distinctio ipsam! Aperiam quaerat odit error officia sapiente,
+              minus harum asperiores voluptates distinctio et mollitia
+              blanditiis molestias unde ab beatae accusamus maiores officiis rem
+              consequatur eos omnis possimus. Beatae, aperiam perferendis.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
         </div>
       </section>
       <section class="contact"></section>
-      <section class="gallery"></section>
     </main>
     <footer>
       <section class="foot">
         <h1 class="trademark">Avisek &copy; 2022</h1>
-        <ul class="nav-links">
+        <ul class="nav-links flex-row">
           <li class="individual-links-left">
             <a href="#"
-              ><img src="/img/instagram 1.svg" alt="instagram-social-media"
+              ><img src="/img/instagram-1.svg" alt="instagram-social-media"
             /></a>
           </li>
-          <li class="individual-links-left">Twitter</li>
+          <li class="individual-links-left">
+            <a href="#"
+              ><img
+                class="white-background"
+                src="/img/twitter-1.svg"
+                alt="twitter-social-media"
+            /></a>
+          </li>
         </ul>
       </section>
     </footer>
+
+    <script>
+      function openCity(cityName) {
+        var i;
+        var x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(cityName).style.display = "block";
+      }
+    </script>
   </body>
 </html>
