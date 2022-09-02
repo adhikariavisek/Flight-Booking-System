@@ -1,19 +1,55 @@
-<link rel = "StyleSheet" href = "style.css"/>
-
-<div class = "mainDiv">
-	<div class = "insideMainDiv">
-		<h1 class = "heading">Login</h1>
-		<form class = "topDownForm" method = "post" action = "validateLogin" th:object = "${passenger}">
-		<h4 class = "directions">Please enter your details as per the label</h4>
-			<label for = "name">Username</label>
-			<input th:field = "*{userName}"/>
-			<label for = "userName">Password</label>
-			<input type = "password" th:field = "*{password}"/>
-			<input class = "submitButton" type = "submit" value = "Login"/>
-		</form>
-		<div class = "buttonsDiv">
-			<button><a href = "home">Home</a></button>
-			<button><a href = "registerPassenger">Don't have an account?</a></button>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="login-page">
+      <div class="main-container flex-row">
+        <img
+          class="login-image"
+          src="img/login-page.jpg"
+          alt="flight-booking"
+        />
+        <div class="login-container">
+          <div class="login-setup">
+            <form action = "validateLogin" method = "post" th:object = "${passenger}">
+              <h1>Login</h1>
+              <label name="username" for="username">Username</label>
+              <input th:field = "*{userName}"/>
+              <label for="password">Password</label>
+              <input type="password"th:field = "*{password}" />
+              <input class="submit-button" type="submit" value="Login" />
+              <a href="registerPassenger">Don't have an account?</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <section class="foot">
+        <h1 class="trademark">Avisek &copy; 2022</h1>
+        <ul class="nav-links flex-row">
+          <li class="individual-links-left">
+            <a href="#"
+              ><img src="img/instagram-1.svg" alt="instagram-social-media"
+            /></a>
+          </li>
+          <li class="individual-links-left">
+            <a href="#"
+              ><img
+                class="white-background"
+                src="img/twitter-1.svg"
+                alt="twitter-social-media"
+            /></a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>

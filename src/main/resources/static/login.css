@@ -1,0 +1,102 @@
+html {
+  --view-width: 80%;
+}
+
+.login-page {
+  background-color: antiquewhite;
+}
+
+.main-container {
+  height: 100vh;
+  min-width: 700px;
+  min-height: 600px;
+  width: var(--view-width);
+  margin: auto;
+  background-color: white;
+}
+
+.main-container .login-image {
+  width: 50%;
+  height: 100vh;
+  min-height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main-container .login-container {
+  width: 50%;
+  height: 100vh;
+  min-height: 600px;
+  background-color: antiquewhite;
+  position: relative;
+}
+
+.main-container .login-container .login-setup {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 500px;
+  min-width: 500px;
+  height: 600px;
+  margin: auto;
+  background-color: white;
+}
+
+.main-container .login-container .login-setup form {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 30%;
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-container .login-container .login-setup form input {
+  margin: 1rem 0 1rem 0;
+  border-width: 0 0 2px 0;
+  padding: 0.3rem 0;
+}
+
+.main-container .login-container .login-setup form input:focus {
+  outline: none;
+  border-color: #5656a5;
+}
+
+.main-container .login-container .login-setup form .submit-button {
+  width: 20%;
+  margin: auto;
+  margin-top: 2rem;
+  border: none;
+  padding: 0.5rem;
+  background-color: antiquewhite;
+  color: black;
+}
+
+.main-container .login-container .login-setup form .submit-button:hover {
+  background-color: #5656a5;
+  color: white;
+}
+
+.main-container .login-container .login-setup form h1 {
+  text-align: center;
+}
+
+.main-container .login-container .login-setup form a {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  color: #5656a5;
+}
+
+.main-container .login-container .login-setup form a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=login.css.map */

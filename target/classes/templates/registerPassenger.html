@@ -1,27 +1,65 @@
-<link rel = "StyleSheet" href ="style.css"/>
-
-
-<div class = "mainDiv">
-	<div class = "insideMainDiv">
-		<h1 class = "heading">SignUp</h1>
-		<form class = "topDownForm" method = "post" action = "savePassenger" th:object = "${passenger}">
-		<h4 class = "directions">Please enter your details as per the label</h4>
-			<label for = "name">Name</label>
-			<input required th:field = "*{name}"/>
-			<label for = "email">Email</label>
-			<input required th:field = "*{email}"/>
-			<label required for = "phoneNumber">Phone Number</label>
-			<input th:field = "*{phoneNumber}"/>
-			<label required for = "passportNumber">Passport Number</label>
-			<input th:field = "*{passportNumber}"/>
-			<label for = "userName">Username</label>
-			<input required th:field = "*{userName}"/>
-			<label for = "password">Password</label>
-			<input required type = "password" th:field = "*{password}"/>
-			<input class = "submitButton" type="submit" value = "SignUp">
-		</form>
-		<div class = "buttonsDiv">
-		<button><a th:href = "home">Go Home</a></button>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="signup.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="signup-page">
+      <div class="main-container flex-row">
+        <img
+          class="signup-image"
+          src="img/signup-page.jpg"
+          alt="flight-booking"
+        />
+        <div class="signup-container">
+          <div class="signup-setup">
+            <form method = "post" action = "savePassenger" th:object = "${passenger}">
+              <h1>Signup</h1>
+              <label  for="name">Full Name</label>
+              <input required th:field = "*{name}" />
+              <label for="email">email</label>
+              <input required type="email" th:field = "*{email}" />
+              <label for="phoneNumber">Phone Number</label>
+              <input th:field = "*{phoneNumber}" />
+              <label for="passportNumber"
+                >Passport Number</label
+              >
+              <input th:field  = "*{passportNumber}" />
+              <label name="username" for="username">Username</label>
+              <input th:field = "*{userName}"/>
+              <label for="password">Password</label>
+              <input type="password" name="password" th:field = "*{password}"/>
+              <input class="submit-button" type="submit" value="Sign Up" />
+              <a href="login">Already have an account?</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <section class="foot">
+        <h1 class="trademark">Avisek &copy; 2022</h1>
+        <ul class="nav-links flex-row">
+          <li class="individual-links-left">
+            <a href="#"
+              ><img src="/img/instagram-1.svg" alt="instagram-social-media"
+            /></a>
+          </li>
+          <li class="individual-links-left">
+            <a href="#"
+              ><img
+                class="white-background"
+                src="/img/twitter-1.svg"
+                alt="twitter-social-media"
+            /></a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>

@@ -52,6 +52,10 @@ html h1 {
 }
 
 /* Header Section */
+.main-head {
+  background-color: antiquewhite;
+}
+
 nav {
   width: var(--main-width);
   margin: auto;
@@ -95,6 +99,7 @@ nav .nav-links {
 
 .individual-links-left {
   padding: 0 0 0 2rem;
+  color: black;
 }
 
 .individual-links-right {
@@ -103,7 +108,7 @@ nav .nav-links {
 }
 
 .second-nav {
-  background-color: #3d3d3d;
+  background-color: #5656a5;
   min-height: 10vh;
   padding: 2rem 0rem;
   display: -webkit-box;
@@ -233,7 +238,8 @@ nav .nav-links {
 }
 
 .hero .tab-container .booking-form .submit-button:hover {
-  background-color: black;
+  background-color: grey;
+  color: #f9f9f9;
 }
 
 /* Deals Section */
@@ -365,7 +371,7 @@ nav .nav-links {
 
 /* Footer section */
 footer {
-  background-color: #e7e7e7;
+  background-color: #d7e6fa;
 }
 
 footer .foot {
@@ -379,8 +385,10 @@ footer .foot {
 }
 
 footer .trademark {
+  font-size: 2.5rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 20rem;
           flex: 1 1 20rem;
+  color: #565656;
 }
 /*# sourceMappingURL=styles.css.map */

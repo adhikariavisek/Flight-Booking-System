@@ -1,46 +1,208 @@
-<!-- <link rel = "Stylesheet" href = "style.css"/>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A Flight Booking System based on Quantas Website"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FDM Flight Booking System</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <a id="logo" href="https:/www.google.com"
+          ><h1>FDM Flight Booking</h1></a
+        >
+        <ul class="nav-links">
+          <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "login">Login</a></li>
+          <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "registerPassenger">SignUp</a></li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left">User Profile</li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a href = "logout">Logout</a></li>
+        </ul>
+      </nav>
+      <section class="second-nav">
+        <div class="second-nav-links">
+          <ul class="flex-row">
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Book A flight</a>
+              <div class="dropdown-content">
+                <p>Booking</p>
+                <p>Hotel</p>
+                <p>Bonjour</p>
+                <p>France</p>
+              </div>
+            </li>
 
-<h1 class = "heading">Flight Booking System</h1>
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Lorem, ipsum</a>
+              <div class="dropdown-content">
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+              </div>
+            </li>
+            <li class="individual-links-right">
+              <a class="black-background" href="#">Lorem, ipsum</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-intro">
+          <div class="bar-button flex-row w3-black">
+            <div class="active-bar">
+              <div class="selected-active-bar"></div>
+              <button
+                class="tab-button w3-button"
+                onclick="openCity('Booking')"
+              >
+                Booking
+              </button>
+            </div>
+            <div class="active-bar">
+              <div class="selected-active-bar"></div>
+              <button class="tab-button w3-button" onclick="openCity('Search')">
+                Search
+              </button>
+            </div>
+          </div>
 
-<button style = "margin: 5px;"><a href = "registerPassenger">SignUp</a></button>
-<button style = "margin: 5px;"><a href = "login">Login</a></button>
-<button style = "margin: 5px;"><a href = "bookingPage">Flight Booking</a></button>
-<button hidden style = "margin: 5px;"><a href = "allFlightDetails">All flight details</a></button>
-<button style = "margin: 5px;"><a href = "passengerProfile">Your Profile</a></button> -->
+          <div id="Booking" class="tab-container city">
+            <form class="booking-form flex-row" action="flightDetails">
+              <select name = "source-place" id="source-place" class="place-select">
+                <option value="" selected disabled hidden>From</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Melbourne">Melbourne</option>
+                <option value="Adelaide">Adelaide</option>
+                <option value="Perth">Perth</option>
+              </select>
+              <select name = "destination-place" id="destination-place" class="place-select">
+                <option value="" selected disabled hidden>To</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Melbourne">Melbourne</option>
+                <option value="Adelaide">Adelaide</option>
+                <option value="Perth">Perth</option>
+              </select>
+              <input type="submit" class="submit-button" value="See flights" />
+            </form>
+          </div>
 
+          <div id="Search" class="tab-container city" style="display: none">
+            <h2>Tokyo</h2>
+            <p>Tokyo is the capital of Japan.</p>
+          </div>
+        </div>
+      </section>
+      <section class="deals">
+        <div class="deals-view">
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Gold Coast</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$119</li>
+            </ul>
+          </div>
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Perth</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$250</li>
+            </ul>
+          </div>
+          <div class="deal">
+            <div class="is-deal">
+              <p>Deal</p>
+            </div>
+            <ul class="deal-info">
+              <li>Melbourne</li>
+              <li class="price-info">Economy return from</li>
+              <li class="price">$150</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="gallery">
+        <div class="gallery-view">
+          <div class="place-description">
+            <img src="img/Melbourne.jpg" alt="image-of-place" />
+            <h1>Travel to Melbourne</h1>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Suscipit, sint eum, eaque rerum quo totam fuga atque eius ipsam
+              adipisci ad nostrum quos odit rem nihil sapiente quas delectus
+              soluta.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
+          <div class="place-description">
+            <img src="img/Sydney.jpg" alt="image-of-place" />
+            <h1>Vacation in Sydney</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
+              autem.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
+          <div class="place-description">
+            <img src="img/Perth.jpg" alt="image-of-place" />
+            <h1>Visit your family in Perth</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+              distinctio ipsam! Aperiam quaerat odit error officia sapiente,
+              minus harum asperiores voluptates distinctio et mollitia
+              blanditiis molestias unde ab beatae accusamus maiores officiis rem
+              consequatur eos omnis possimus. Beatae, aperiam perferendis.
+            </p>
+            <a href="#">Go there &rarr;</a>
+          </div>
+        </div>
+      </section>
+      <section class="contact"></section>
+    </main>
+    <footer>
+      <section class="foot">
+        <h1 class="trademark">Avisek &copy; 2022</h1>
+        <ul class="nav-links flex-row">
+          <li class="individual-links-left">
+            <a href="#"
+              ><img src="img/instagram-1.svg" alt="instagram-social-media"
+            /></a>
+          </li>
+          <li class="individual-links-left">
+            <a href="#"
+              ><img
+                class="white-background"
+                src="img/twitter-1.svg"
+                alt="twitter-social-media"
+            /></a>
+          </li>
+        </ul>
+      </section>
+    </footer>
 
-<link rel = "StyleSheet" href ="style.css"/>
-
-<div class = "mainDiv" >
-	<div class = "insideMainDiv">
-		<h1 class = "heading">Flight Booking System</h1>
-		
-		<h1 style = "background-color : red;" th:if = "'isEqual' == ${isEqual}">Please Select different places</h1>
-		
-		<form class = "flightForm" action = "flightDetails">
-			<label for = "source-place">From</label>
-			<select name = "source-place" id = "source-place">
-				<option value = "Sydney">Sydney</option>
-				<option value = "Melbourne">Melbourne</option>
-				<option value = "Adelaide">Adelaide</option>
-				<option value = "Perth">Perth</option>
-			</select>
-			
-			
-			<label for = "destination-place">To</label>
-			<select name = "destination-place" id = "destination-place">
-				<option value = "Sydney">Sydney</option>
-				<option value = "Melbourne">Melbourne</option>
-				<option value = "Adelaide">Adelaide</option>
-				<option value = "Perth" selected>Perth</option>
-			</select>
-			<input class = "homePageSubmitButton" type = "submit" value = "Check Flights"/>
-		</form>
-		<div class = "buttonsDiv">
-			<button th:if = "${session.size()} == 0"><a href = "login">Login</a></button>
-			<button th:if = "${session.size()} &gt; 0"><a href = "passengerProfile">Your Profile</a></button>
-			<button><a href = "demo">Go To Demo</a></button>
-		</div>
-	</div>
-
-</div>
+    <script>
+      function openCity(cityName) {
+        var i;
+        var x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(cityName).style.display = "block";
+      }
+    </script>
+  </body>
+</html>
