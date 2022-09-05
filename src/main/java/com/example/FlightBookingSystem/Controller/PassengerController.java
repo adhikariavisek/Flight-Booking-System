@@ -112,7 +112,7 @@ public class PassengerController {
 	public String failedLoginView(Model model) {
 		model.addAttribute("passenger", new Passenger());
 		logger.info("Failed Login");
-		return "/failedLogin";
+		return "/login";
 	}
 	
 	/**

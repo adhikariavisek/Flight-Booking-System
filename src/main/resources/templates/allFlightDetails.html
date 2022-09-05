@@ -26,7 +26,7 @@
           <td>1.5 hrs</td>
           <td th:text = "*{'$ ' + fare}">Hello</td>
           <td>
-            <button><a >Book</a></button>
+            <button><a  th:href="*{'chooseSeat?id=' + id}">Book</a></button>
           </td>
         </tr>
       </table>
