@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.FlightBookingSystem.Model.Notification;
 import com.example.FlightBookingSystem.Model.Passenger;
+import com.example.FlightBookingSystem.Model.Ticket;
 import com.example.FlightBookingSystem.Service.NotificationService;
 import com.example.FlightBookingSystem.Service.PassengerService;
 
@@ -133,9 +134,13 @@ public class PassengerController {
 			return "redirect:/login";
 		else {
 		Passenger passenger = (Passenger)httpSession.getAttribute("passenger");
+		Passenger passengerFromDatabase = passengerService.findById(passenger.getId());
 		List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
+		
+		List<Ticket> tickets = passengerFromDatabase.getTickets();
 		int size = notificationService.unreadNotifications(userNotifications);
 		model.addAttribute("unreadNotifications", size);
+		model.addAttribute("tickets", tickets);
 		return "passengerProfile";
 		}
 	}

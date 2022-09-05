@@ -1,32 +1,101 @@
-<link rel = "Stylesheet" href = "style.css"/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <title>Profile Page</title>
+  </head>
+  <body>
+    <div th:insert = "home :: navbar"></div>
+    <section class="profile-container flex-row">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Profile')">
+          Profile
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Tickets')">
+          Tickets
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'settings')">
+          Settings
+        </button>
+      </div>
 
+      <div id="Profile" class="tabcontent">
+        <div class="tab-container">
+          <div class="account-container">
+            <div class="account-image"></div>
+            <ul th:object = "${session.passenger}">
+              <li th:text = "*{'Name: ' + name}"></li>
+              <li th:text = "*{'Phone No.: ' + phoneNumber}"></li>
+              <li th:text = "*{'Passport No.: ' + passportNumber}"></li>
+              <li th:text = "*{'email: ' + email}"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-<div class = "mainDiv">
-<div class = "insideMainDiv">
-<h1 class = "heading" th:text = ${session.passenger.userName}></h1>
-<div class = "passengerProfile">
-	<div class = "details">
-	<div class = "picture">
-	</div>
-	<div class = "topDownInformation" th:object = ${session.passenger}>
-		<h4 th:text = "*{'Name: ' + name}"></h4>
-		<h4 th:text = "*{'email: ' + email}"></h4>
-		<h4 th:text = "*{'Phone No.: ' + phoneNumber}"></h4>
-		<h4 th:text = "*{'Passport No.: ' + passportNumber}"></h4>
-	</div>
-	</div>
-	<div class = "buttonsDiv">
-		<button style = "margin: 5px;"><a href = "logout">LogOut</a></button>
-		<button style = "margin: 5px;"><a href = "home">Home</a></button>
-		<button><a href = "viewAllTickets">View Tickets</a></button>
-		<button><a th:href = "*{'editPassenger?id=' + session.passenger.id}">Edit Details</a></button>
-		<button><a th:href = "deleteAccountConfirmationPage">Delete Account</a></button>
-		<button><a href="viewAllNotifications" class="notification">
- 			 <span>Notifications</span>
- 			 <span class="badge" th:if = "${unreadNotifications} &gt; 0"  th:text = "${unreadNotifications}"></span>
-		</a>
-		</button>
-	</div>
-</div>
-</div>
-</div>
+      <div id="Tickets" class="tabcontent">
+        <div class="tab-container">
+          <h1>All Tickets</h1>
+          <div class="tickets-view">
+            <div class="ticket-container" th:each = "ticket : ${tickets}" th:object = "${ticket}">
+              <p class="passenger-name" th:text = "${session.passenger.name}" ></p>
+              <p class="flight-id" th:text = "*{flight.id}"></p>
+              <p class="from-1" th:text = "*{flight.source}"></p>
+              <p class="from-2" th:text = "*{flight.source}"></p>
+              <p class="to-1" th:text = "*{flight.destination}"></p>
+              <p class="to-2" th:text = "*{flight.destination}"></p>
+              <p class="seat-1" th:text = "*{seatNumber}"></p>
+              <p class="seat-2" th:text = "*{seatNumber}"></p>
+              <p class="time">1:30mins</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings" class="tabcontent">
+        <div class="setting-container tab-container">
+          <h1>General Account Settings</h1>
+          <table>
+            <tr>
+              <td><h2>Edit Profile</h2></td>
+              <td><button><a th:href ="${'editPassenger?id=' + session.passenger.id}" >Edit</a></button></td>
+            </tr>
+            <tr>
+              <td><h2>Delete Profile</h2></td>
+              <td><button><a th:href = "deleteAccountConfirmationPage">Delete</a></button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+	<div th:insert = "home :: footer"></div>
+    <script>
+      document.getElementById("Profile").style.display = "block";
+
+      function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+.flight-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.flight-container .booking-hero-img {
+  width: 90%;
+  margin: auto;
+  height: 300px;
+  background-image: url(img/airplane.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.flight-container table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.flight-container table th {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+  font-size: 3rem;
+  text-align: left;
+}
+
+.flight-container table td {
+  font-size: 2rem;
+  text-align: left;
+  padding: 8px;
+}
+
+.flight-container table td button {
+  border: none;
+  padding: 1rem;
+}
+
+.flight-container table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/*# sourceMappingURL=booking.css.map */

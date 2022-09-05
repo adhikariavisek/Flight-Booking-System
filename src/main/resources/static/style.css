@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: "Ruhl";
-  src: url("/Fonts/FrankRuhlLibre-Regular.ttf");
+  src: url("Fonts/FrankRuhlLibre-Regular.ttf");
 }
 
 @font-face {
   font-family: "Ruhl Medium";
-  src: url("/Fonts/FrankRuhlLibre-Medium.ttf");
+  src: url("Fonts/FrankRuhlLibre-Medium.ttf");
 }
 
 html {
@@ -20,7 +20,7 @@ html {
   --heading1: calc(2rem + 1vw);
   --text: calc(0.7rem + 1vw);
   --small-text: calc(0.5rem + 1vw / 2);
-  --main-width: 80%;
+  --main-width: 90%;
   --svg-color: black;
 }
 
@@ -53,10 +53,11 @@ html h1 {
 
 /* Header Section */
 .main-head {
-  background-color: antiquewhite;
+  background-color: #d7e6fa;
 }
 
 nav {
+	background-color: #d7e6fa;
   width: var(--main-width);
   margin: auto;
   display: -webkit-box;
@@ -154,7 +155,7 @@ nav .nav-links {
 
 /* Hero Section */
 .hero {
-  background-image: url("./img/Background.jpg");
+  background-image: url("img/Background.jpg");
   background-size: cover;
   background-position: center;
   height: 400px;

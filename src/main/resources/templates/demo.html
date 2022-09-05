@@ -4,52 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="login.css" />
-    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="booking.css"/>
+    <title>Booking Page</title>
   </head>
   <body>
-    <section class="login-page">
-      <div class="main-container flex-row">
-        <img
-          class="login-image"
-          src="/img/login-page.jpg"
-          alt="flight-booking"
-        />
-        <div class="login-container">
-          <div class="login-setup">
-            <form action = "validateLogin" method = "post" th:object = "${passenger}">
-              <h1>Login</h1>
-              <label name="username" for="username">Username</label>
-              <input th:field = "*{userName}"/>
-              <label for="password">Password</label>
-              <input type="password"th:field = "*{password}" />
-              <input class="submit-button" type="submit" value="Login" />
-              <a href="registerPassenger">Don't have an account?</a>
-            </form>
-          </div>
-        </div>
-      </div>
+  	<div th:insert = "home :: navbar"></div>
+  	 <section class="flight-container">
+      <table>
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Duration</th>
+          <th>Fare</th>
+          <th>Action</th>
+        </tr>
+        <tr  th:each = "flight : ${flights}" th:object = "${flight}">
+          <td th:text = "*{source}"></td>
+          <td th:text = "*{destination}">Maria Anders</td>
+          <td>1.5 hrs</td>
+          <td th:text = "*{fare}">Hello</td>
+          <td>
+            <button><a>Book</a></button>
+          </td>
+        </tr>
+      </table>
     </section>
-    <footer>
-      <section class="foot">
-        <h1 class="trademark">Avisek &copy; 2022</h1>
-        <ul class="nav-links flex-row">
-          <li class="individual-links-left">
-            <a href="#"
-              ><img src="/img/instagram-1.svg" alt="instagram-social-media"
-            /></a>
-          </li>
-          <li class="individual-links-left">
-            <a href="#"
-              ><img
-                class="white-background"
-                src="/img/twitter-1.svg"
-                alt="twitter-social-media"
-            /></a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+ 	 <div th:insert = "home :: footer"></div>
   </body>
+
 </html>

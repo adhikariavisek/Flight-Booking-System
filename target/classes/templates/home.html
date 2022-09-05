@@ -13,19 +13,22 @@
     <title>FDM Flight Booking System</title>
   </head>
   <body>
-    <header class="main-head">
-      <nav>
-        <a id="logo" href="https:/www.google.com"
+    <header th:fragment = "navbar" class="main-head">
+      <nav  >
+        <a id="logo" href="home"
           ><h1>FDM Flight Booking</h1></a
         >
         <ul class="nav-links">
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "login">Login</a></li>
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a href = "registerPassenger">SignUp</a></li>
-          <li th:if = "${session.size()} &gt; 0" class="individual-links-left">User Profile</li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a href = "passengerProfile">User Profile</a></li>
           <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a href = "logout">Logout</a></li>
+          <li class="individual-links-left"><a href = "demo">Go Demo</a></li>
         </ul>
       </nav>
-      <section class="second-nav">
+      
+    </header>
+    <section class="second-nav">
         <div class="second-nav-links">
           <ul class="flex-row">
             <li class="individual-links-right">
@@ -53,7 +56,6 @@
           </ul>
         </div>
       </section>
-    </header>
     <main>
       <section class="hero">
         <div class="hero-intro">
@@ -173,7 +175,7 @@
       </section>
       <section class="contact"></section>
     </main>
-    <footer>
+    <footer th:fragment = "footer">
       <section class="foot">
         <h1 class="trademark">Avisek &copy; 2022</h1>
         <ul class="nav-links flex-row">

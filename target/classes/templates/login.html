@@ -9,6 +9,7 @@
     <title>Login</title>
   </head>
   <body>
+  	<div th:insert="home :: navbar"> </div>
     <section class="login-page">
       <div class="main-container flex-row">
         <img
@@ -31,25 +32,6 @@
         </div>
       </div>
     </section>
-    <footer>
-      <section class="foot">
-        <h1 class="trademark">Avisek &copy; 2022</h1>
-        <ul class="nav-links flex-row">
-          <li class="individual-links-left">
-            <a href="#"
-              ><img src="img/instagram-1.svg" alt="instagram-social-media"
-            /></a>
-          </li>
-          <li class="individual-links-left">
-            <a href="#"
-              ><img
-                class="white-background"
-                src="img/twitter-1.svg"
-                alt="twitter-social-media"
-            /></a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    <div th:insert="home :: footer"> </div>
   </body>
 </html>
