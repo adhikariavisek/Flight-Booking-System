@@ -97,7 +97,7 @@ public class PassengerController {
 			List<Notification> userNotifications = notificationService.getNotificationForUser(passenger.getId());
 			int size = notificationService.unreadNotifications(userNotifications);
 			model.addAttribute("unreadNotifications", size);
-			return "passengerProfile";
+			return "home";
 		}
 		else {
 

@@ -123,7 +123,7 @@ public class FlightController {
 		
 		String time = notificationService.currentTime();
 		
-		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " for seat " + seatNumber + "in flight from " + flight.getSource() + " to " + flight.getDestination(), time , false);
+		Notification notification = new Notification("Booking done for " + passengerFromDatabase.getName() + " for seat " + seatNumber + " in flight from " + flight.getSource() + " to " + flight.getDestination(), time , false);
 		notification.setPassenger(passengerFromDatabase);
 		notificationService.saveNotification(notification);
 		

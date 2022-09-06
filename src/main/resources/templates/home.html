@@ -22,8 +22,9 @@
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a th:href = "login">Login</a></li>
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a th:href = "registerPassenger">SignUp</a></li>
           <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a th:href = "passengerProfile" th:text = "${'Hi ' + session.passenger.userName}">User Profile</a></li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a href = "viewAllNotifications">Notifications</a></li>
           <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a th:href = "logout">Logout</a></li>
-          <li class="individual-links-left"><a href = "demo">Go Demo</a></li>
+
         </ul>
       </nav>
       

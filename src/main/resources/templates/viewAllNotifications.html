@@ -1,20 +1,31 @@
-<link rel = "StyleSheet" href = "style.css"/>
-
-<h1 class = "heading">All Notifications</h1>
-
-
-<h2 th:if = "${notifications.isEmpty}" style = "text-align : center ; padding-top : 10;">No notifications</h2>
-<div class = "allFlights" th:each="notification : ${notifications}" th:object = "${notification}">
-	<div class = "oneFlight">
-		<h2 th:text = "*{message}"></h2>
-		<h2>-------></h2>
-		<h2 th:text = "*{createdAt}"></h2>
-		<button><a th:href = "*{'deleteNotification?id=' + id}">Done</a></button>
-	</div>
-</div>
-
-
-<div class = "buttonsDiv">
-<button><a href = "home">Book More Tickets</a></button>
-<button><a href = "passengerProfile">Go Back</a></button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="notification.css" />
+    <title>Seat Select Screen</title>
+  </head>
+  <body>
+    <div th:insert = "home :: navbar"></div>
+    <h2 th:if = "${notifications.isEmpty}" style = "text-align : center; font-size : 3rem;">No notifications</h2>
+    <section class="notification-container">
+      <div class="notification-details" th:each="notification : ${notifications}" th:object = "${notification}">
+        <table>
+          <tr>
+            <th style="width: 90%">Notification</th>
+            <th>Action</th>
+          </tr>
+          <tr>
+            <td th:text = "*{message}"></td>
+            <td><button><a th:href = "*{'deleteNotification?id=' + id}">Done</a></button></td>
+          </tr>
+        </table>
+        <button>Delete All</button>
+      </div>
+    </section>
+    <div th:insert = "home :: footer"></div>
+  </body>
+</html>
