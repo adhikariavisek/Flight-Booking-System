@@ -21,7 +21,7 @@
         <ul class="nav-links">
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a th:href = "login">Login</a></li>
           <li th:if = "${session.size()} == 0" class="individual-links-left"><a th:href = "registerPassenger">SignUp</a></li>
-          <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a th:href = "passengerProfile">User Profile</a></li>
+          <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a th:href = "passengerProfile" th:text = "${'Hi ' + session.passenger.userName}">User Profile</a></li>
           <li th:if = "${session.size()} &gt; 0" class="individual-links-left"><a th:href = "logout">Logout</a></li>
           <li class="individual-links-left"><a href = "demo">Go Demo</a></li>
         </ul>
@@ -182,14 +182,14 @@
         <ul class="nav-links flex-row">
           <li class="individual-links-left">
             <a href="#"
-              ><img src="img/instagram-1.svg" alt="instagram-social-media"
+              ><img src="svg/instagram-1.svg" alt="instagram-social-media"
             /></a>
           </li>
           <li class="individual-links-left">
             <a href="#"
               ><img
                 class="white-background"
-                src="img/twitter-1.svg"
+                src="svg/twitter-1.svg"
                 alt="twitter-social-media"
             /></a>
           </li>

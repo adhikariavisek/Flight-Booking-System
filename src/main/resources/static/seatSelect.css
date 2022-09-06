@@ -1,0 +1,67 @@
+.seat-select-container {
+  width: 100%;
+  min-height: 50rem;
+  height: 100vh;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  overflow: scroll;
+}
+
+.seat-select-container .flight-description {
+  width: 70%;
+  margin-left: 5%;
+  height: 400px;
+}
+
+.seat-select-container .flight-description h1 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.seat-select-container .flight-description table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 2.5rem;
+}
+
+.seat-select-container .flight-description table .seat-selection-radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.seat-select-container .flight-description table .seat-selection-radio div {
+  width: 20%;
+}
+
+.seat-select-container .flight-description table th,
+.seat-select-container .flight-description table td {
+  text-align: left;
+  padding: 1rem;
+  border: 1px solid #dddddd;
+}
+
+.seat-select-container .flight-description table tr:nth-child(even) {
+  background-color: #d7e6fa;
+}
+
+.seat-select-container .flight-description table select {
+  border: none;
+  padding: 0.7rem;
+}
+
+.seat-select-container .flight-description input {
+  margin: 1rem 0 1rem 0;
+  border: none;
+  padding: 1rem;
+}
+/*# sourceMappingURL=seatSelect.css.map */

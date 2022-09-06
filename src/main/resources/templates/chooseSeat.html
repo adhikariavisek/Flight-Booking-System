@@ -1,26 +1,56 @@
-<link rel = "StyleSheet" href = "style.css"/>
-
-<div class = "mainDiv">
-	<div class = "insideMainDiv">
-		<h1 class = "heading">Choose A seat for the Flight with details</h1>
-		<div class = "topDownInformation" th:object = ${flight}>
-			<h4 th:text = "*{'From: ' + source}"></h4>
-			<h4 th:text = "*{'To: ' + destination}"></h4>
-			<h4 th:text = "*{'Fare: $' + fare}"></h4>
-			<h4 th:text = "*{'Departure Time: ' + departureTime}"></h4>
-		</div>
-			<form class = "seatSelectForm" th:action = "bookingFlight">
-			<input th:name = "flightId" th:value = "${flight.id}" hidden>
-			<label for = "chooseSeat">Select a seat</label>
-			<select th:name = "bookedSeat">
-			<option th:each = "availableSeat : ${availableSeats}" th:value = ${availableSeat} th:text = ${availableSeat}></option>
-			</select>
-			<input class = "homePageSubmitButton" type = "submit" value = "Confirm Seat">
-
-		<div class = "buttonsDiv">
-		<button style = "margin: 5px;"><a th:href="home">Go back</a></button>
-		</div>
-		</form>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="seatSelect.css" />
+    <title>Seat Confirmation</title>
+  </head>
+  <body>
+  	<div th:insert = "home :: navbar"></div>
+    <section class="seat-select-container">
+      <div class="flight-description">
+        <h1>Seat Confirmation</h1>
+        <form action="bookingFlight" th:object = ${flight}>
+        	<input th:name = "flightId" th:value = "*{id}" hidden>
+          <table>
+            <tr>
+              <th>From</th>
+              <td th:text = "*{source}"></td>
+            </tr>
+            <tr>
+              <th>To</th>
+              <td th:text = "*{destination}"></td>
+            </tr>
+            <tr>
+              <th>Fare</th>
+              <td th:text = "*{fare}">$15</td>
+            </tr>
+            <tr>
+              <th>Departure Time</th>
+              <td th:text = "*{departureTime}"></td>
+            </tr>
+            <tr>
+              <th>Arrival Time</th>
+              <td th:text = "*{arrivalInDestinationTime}"></td>
+            </tr>
+            <tr>
+              <th>Select from available seats</th>
+              <td class="seat-selection-radio">
+                <div th:each = "availableSeat : ${availableSeats}">
+                  <input type="radio" th:name = "bookedSeat" th:value = ${availableSeat} />
+                  <label for = ${availableSeat} th:text = ${availableSeat} ></label>
+                </div>
+                
+              </td>
+            </tr>
+          </table>
+          <input type="submit" value="Confirm Seat" />
+        </form>
+      </div>
+    </section>
+   <div th:insert = "home :: footer"></div>
+  </body>
+</html>

@@ -40,8 +40,8 @@
       <div id="Tickets" class="tabcontent">
         <div class="tab-container">
           <h1>All Tickets</h1>
-          <div class="tickets-view">
-            <div class="ticket-container" th:each = "ticket : ${tickets}" th:object = "${ticket}">
+          <div class="tickets-view" th:each = "ticket : ${tickets}" th:object = "${ticket}">
+            <div class="ticket-container" >
               <p class="passenger-name" th:text = "${session.passenger.name}" ></p>
               <p class="flight-id" th:text = "*{flight.id}"></p>
               <p class="from-1" th:text = "*{flight.source}"></p>
@@ -52,6 +52,7 @@
               <p class="seat-2" th:text = "*{seatNumber}"></p>
               <p class="time">1:30mins</p>
             </div>
+            <button><a th:href="*{'deleteTicket?id=' + id}">Cancel Ticket</a></button>
           </div>
         </div>
       </div>

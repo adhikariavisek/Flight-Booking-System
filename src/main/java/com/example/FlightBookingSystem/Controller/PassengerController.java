@@ -99,8 +99,10 @@ public class PassengerController {
 			model.addAttribute("unreadNotifications", size);
 			return "passengerProfile";
 		}
-		else
+		else {
+
 			return "redirect:/failedLogin";
+		}
 	}
 	
 	/**
@@ -111,6 +113,8 @@ public class PassengerController {
 	@GetMapping("failedLogin")
 	public String failedLoginView(Model model) {
 		model.addAttribute("passenger", new Passenger());
+		boolean failedLogin = true;
+		model.addAttribute("failedLogin", failedLogin);
 		logger.info("Failed Login");
 		return "/login";
 	}

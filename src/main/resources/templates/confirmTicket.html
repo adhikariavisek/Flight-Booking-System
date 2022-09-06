@@ -1,20 +1,51 @@
-<link rel = "StyleSheet" href = "style.css"/>
-
-<div class = "mainDiv">
-	<div class = "insideMainDiv">
-		<h1 class = "heading">Do you want to continue?</h1>
-		<div class = "topDownInformation" th:object = ${ticket}>
-			<h4 th:text = "*{'From: ' + flight.source}"></h4>
-			<h4 th:text = "*{'To: ' + flight.destination}"></h4>
-			<h4 th:text = "*{'Fare: $' + flight.fare}"></h4>
-			<h4 th:text = "*{'Passenger Name: ' + passenger.name}"></h4>
-			<h4 th:text = "*{'Departure Time: ' + flight.departureTime}"></h4>
-			<h4 th:text = "*{'Seat Number: ' + seatNumber}"></h4>
-		</div>
-		<div class = "buttonsDiv">
-		<button style = "margin: 5px;"><a th:href="*{'deleteTicket?id=' + ticket.id}">Delete</a></button>
-		<button style = "margin: 5px;"><a th:href="home">Save</a></button>
-		</div>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="ticketConfirmation.css" />
+    <title>Seat Select Screen</title>
+  </head>
+  <body>
+    <div th:insert = "home :: navbar"></div>
+    <section class="ticket-confirmation-container">
+      <div class="ticket-details" th:object = ${ticket}>
+        <table>
+          <tr>
+            <td>Passenger Name</td>
+            <td th:text = "*{passenger.name}"></td>
+          </tr>
+          <tr>
+            <th>From</th>
+            <td th:text = "*{flight.source}"></td>
+          </tr>
+          <tr>
+            <th>To</th>
+            <td th:text = "*{flight.destination}"></td>
+          </tr>
+          <tr>
+            <th>Fare</th>
+            <td th:text = "*{flight.fare}"></td>
+          </tr>
+          <tr>
+            <th>Departure Time</th>
+            <td th:text = "*{flight.departureTime}"></td>
+          </tr>
+          <tr>
+            <th>Arrival Time</th>
+            <td th:text = "*{flight.arrivalInDestinationTime}"></td>
+          </tr>
+          <tr>
+            <th>Seat Number</th>
+            <td th:text = "*{seatNumber}"></td>
+          </tr>
+        </table>
+        <button><a th:href="*{'deleteTicket?id=' + id}">Delete</a></button>
+        <button><a th:href="home">Save</a></button>
+      </div>
+    </section>
+    <div th:insert = "home :: footer"></div>
+  </body>
+</html>

@@ -94,9 +94,15 @@
       flex-wrap: wrap;
 }
 
+.tabcontent .tab-container .tickets-view button {
+  border: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
 .tabcontent .tab-container .tickets-view .ticket-container {
   position: relative;
-  margin-bottom: 3rem;
   background-image: url(img/Ticket.jpg);
   background-size: contain;
   min-width: 1080px;

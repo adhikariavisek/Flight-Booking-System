@@ -1,0 +1,44 @@
+.ticket-confirmation-container {
+  width: 100%;
+  min-height: 50rem;
+  height: 100vh;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  overflow: scroll;
+}
+
+.ticket-confirmation-container .ticket-details {
+  width: 70%;
+  margin-left: 5%;
+  height: 400px;
+}
+
+.ticket-confirmation-container .ticket-details h1 {
+  text-align: center;
+}
+
+.ticket-confirmation-container .ticket-details table {
+  margin-top: 2rem;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 2.5rem;
+}
+
+.ticket-confirmation-container .ticket-details table th,
+.ticket-confirmation-container .ticket-details table td {
+  text-align: left;
+  padding: 1rem;
+  border: 1px solid #dddddd;
+}
+
+.ticket-confirmation-container .ticket-details table tr:nth-child(even) {
+  background-color: #d7e6fa;
+}
+
+.ticket-confirmation-container .ticket-details button {
+  border: none;
+  padding: 1rem;
+  margin: 1rem 1rem 0 0;
+}
+/*# sourceMappingURL=ticketConfirmation.css.map */

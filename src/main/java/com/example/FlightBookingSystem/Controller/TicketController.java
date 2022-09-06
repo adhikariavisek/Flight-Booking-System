@@ -41,7 +41,7 @@ public class TicketController {
 	public String deleteTicketWithId(@RequestParam long id) {
 		logger.info("Ticket with id " + id + " deleted");
 		ticketService.removeById(id);
-		return "redirect:/";
+		return "redirect:/passengerProfile";
 	}
 	
 	/**
