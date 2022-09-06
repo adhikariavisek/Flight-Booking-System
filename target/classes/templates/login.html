@@ -19,7 +19,7 @@
           alt="flight-booking"
         />
         <div class="login-container">
-        <h1 style = "background-color : red;" th:if = "${failedLogin} == true">Invalid Username/Password or both. Please try again</h1>
+        <h2 style = "background-color : red; z-index: 1;" th:if = "${failedLogin} == true">Invalid Username/Password or both. Please try again</h2>
           <div class="login-setup">
             <form action = "validateLogin" method = "post" th:object = "${passenger}">
             

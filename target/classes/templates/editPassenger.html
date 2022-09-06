@@ -1,27 +1,48 @@
-<link rel = "StyleSheet" href ="style.css"/>
-
-<div class = "mainDiv">
-	<div class = "insideMainDiv">
-		<h1 class = "heading">Edit your details</h1>
-		<form class = "topDownForm" method = "post" action = "editToUpdatePassenger" th:object = "${passenger}">
-		<h4 class = "directions">Please enter your changed details as per the label</h4>
-			<input th:field = "*{id}" hidden>
-			<label for = "name">Name</label>
-			<input required th:field = "*{name}"/>
-			<label for = "email">Email</label>
-			<input required th:field = "*{email}"/>
-			<label required for = "phoneNumber">Phone Number</label>
-			<input th:field = "*{phoneNumber}"/>
-			<label required for = "passportNumber">Passport Number</label>
-			<input th:field = "*{passportNumber}"/>
-			<label for = "userName">Username</label>
-			<input required th:field = "*{userName}"/>
-			<label for = "password">Password</label>
-			<input required type = "password" th:field = "*{password}"/>
-			<input class = "submitButton" type="submit">
-		</form>
-		<div class = "buttonsDiv">
-		<button><a th:href = "home">Go Home</a></button>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="signup.css" />
+    <title>SignUp</title>
+  </head>
+  <body>
+  	<div th:insert = "home :: navbar"></div>
+    <section class="signup-page">
+      <div class="main-container flex-row">
+        <img
+          class="signup-image"
+          src="img/Edit-profile.jpg"
+          alt="flight-booking"
+        />
+        <div class="signup-container">
+          <div class="signup-setup">
+            <form method = "post" action = "savePassenger" th:object = "${passenger}">
+              <h1>Change Details</h1>
+              <input th:field = "*{id}" hidden>
+              <label  for="name">Full Name</label>
+              <input required th:field = "*{name}" />
+              <label for="email">email</label>
+              <input required type="email" th:field = "*{email}" />
+              <label for="phoneNumber">Phone Number</label>
+              <input th:field = "*{phoneNumber}" />
+              <label for="passportNumber"
+                >Passport Number</label
+              >
+              <input th:field  = "*{passportNumber}" />
+              <label name="username" for="username">Username</label>
+              <input th:field = "*{userName}"/>
+              <label for="password">Password</label>
+              <input type="password" name="password" th:field = "*{password}"/>
+              <input class="submit-button" type="submit" value="Update" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div th:insert = "home :: footer"></div>
+  
+  </body>
+</html>

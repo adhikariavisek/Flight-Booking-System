@@ -1,0 +1,36 @@
+.confirmation-container {
+  width: 100%;
+  min-height: 50rem;
+  height: 100vh;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  overflow: scroll;
+  text-align: center;
+}
+
+.confirmation-container .confirmation {
+  padding: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.confirmation-container .confirmation button {
+  border: none;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.confirmation-container .confirmation button:hover {
+  background-color: #d7e5fa;
+}
+
+.confirmation-container .confirmation button:active {
+  background-color: #93b9f2;
+}
+/*# sourceMappingURL=confirmationPage.css.map */

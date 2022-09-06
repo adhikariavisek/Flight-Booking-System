@@ -40,4 +40,10 @@ public class NotificationController {
 		notificationService.changeToReadNotifications(userNotifications);
 		return "viewAllNotifications";
 	}
+	
+	@GetMapping("deleteAllNotifications")
+	public String deleteUserAllNotification() {
+		//TODO finish the delete notification setup
+		return "viewAllNotifications";
+	}
 }
