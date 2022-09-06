@@ -125,6 +125,7 @@ public class PassengerController {
 	 */
 	@GetMapping("home")
 	public String getHome() {
+		
 		return "redirect:/";
 	}
 	

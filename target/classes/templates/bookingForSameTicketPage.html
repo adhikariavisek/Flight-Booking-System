@@ -1,21 +1,37 @@
-<link rel = "StyleSheet" href = "style.css"/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="booking.css"/>
+    <title>Booking Page</title>
+  </head>
+  <body>
+  	<div th:insert = "home :: navbar"></div>
+  	 <section class="flight-container">
+  	 <div class="booking-hero-img"></div>
+      <table>
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Duration</th>
+          <th>Fare</th>
+          <th>Action</th>
+        </tr>
+        <tr  th:each = "flight : ${flights}" th:object = "${flight}">
+          <td th:text = "*{source}"></td>
+          <td th:text = "*{destination}"></td>
+          <td>1.5 hrs</td>
+          <td th:text = "*{'$ ' + fare}"></td>
+          <td>
+            <button><a  th:href="*{'replaceTicket?id=' + id}">Change Flight</a></button>
+          </td>
+        </tr>
+      </table>
+    </section>
+ 	 <div th:insert = "home :: footer"></div>
+  </body>
 
-<h1 class = "heading">Select a flight to replace the ticket</h1>
-
-
-
-<div class = "allFlights" th:each="flight : ${flights}" th:object = "${flight}">
-	<div class ="oneFlight">
-		<h2 th:text = "*{source}"></h2>
-		<h2>TO</h2>
-		<h2 th:text = "*{destination}"></h2>
-		<h2 th:text = "*{'$' + fare}"></h2>
-		<h2 th:text = "*{plane.model}"></h2>
-		<div>
-			<button style = "margin: 5px;"><a  th:href="*{'replaceTicket?id=' + id}">Change Flight</a></button>
-		</div>
-	</div>
-</div>
-<div class = "buttonsDiv">
-<button><a th:href = "home">Go Home</a></button>
-</div>
+</html>

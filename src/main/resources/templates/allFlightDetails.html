@@ -22,9 +22,9 @@
         </tr>
         <tr  th:each = "flight : ${flights}" th:object = "${flight}">
           <td th:text = "*{source}"></td>
-          <td th:text = "*{destination}">Maria Anders</td>
+          <td th:text = "*{destination}"></td>
           <td>1.5 hrs</td>
-          <td th:text = "*{'$ ' + fare}">Hello</td>
+          <td th:text = "*{'$ ' + fare}"></td>
           <td>
             <button><a  th:href="*{'chooseSeat?id=' + id}">Book</a></button>
           </td>

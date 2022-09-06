@@ -74,74 +74,74 @@ public class Runner implements ApplicationRunner {
 		List<Flight> flightsToSydney = new ArrayList<Flight>();
 		
 		
-		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
+		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 125.2));
+		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 120.7));
+		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 110));
+		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 115));
+		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 120));
+		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 105));
+		flightsToPerth.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 107));
+		flightsToPerth.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 109));
+		flightsToPerth.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 170));
+		flightsToPerth.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 200));
 		
-		flightsToPerth.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
+		flightsToPerth.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 250));
+		flightsToPerth.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 129));
+		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 79.2));
+		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 105.5));
+		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 110.7));
+		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 105));
+		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 157.6));
+		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 99.99));
+		flightsToPerth.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 201));
+		flightsToPerth.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 105));
 		
-		flightsToPerth.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		
-		
+		flightsToPerth.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 69.69));
+		flightsToPerth.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 120));
+		flightsToPerth.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 122));
+		flightsToPerth.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 130));
+		flightsToPerth.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 500));
+		flightsToPerth.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 72));
+		flightsToPerth.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 250));
+		flightsToPerth.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 270));
+		flightsToPerth.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 150));
+		flightsToPerth.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 170));
 		
 		
-		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
 		
-		flightsToSydney.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
 		
-		flightsToSydney.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
-		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 26.5));
+		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 165));
+		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 177));
+		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 155));
+		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 198));
+		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 176));
+		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 198));
+		flightsToSydney.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 167));
+		flightsToSydney.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 145));
+		flightsToSydney.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 175));
+		flightsToSydney.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 145));
+		
+		flightsToSydney.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 187));
+		flightsToSydney.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 156));
+		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 135));
+		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 199));
+		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 167));
+		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 145));
+		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 178));
+		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 109));
+		flightsToSydney.add(new Flight("Adelaide", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 111));
+		flightsToSydney.add(new Flight("Adelaide", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 120));
+		
+		flightsToSydney.add(new Flight("Adelaide", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 139));
+		flightsToSydney.add(new Flight("Perth", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 120));
+		flightsToSydney.add(new Flight("Perth", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 250));
+		flightsToSydney.add(new Flight("Perth", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 178));
+		flightsToSydney.add(new Flight("Sydney", "Melbourne", "2022/08/10 10:30", "2022/08/10 12:05", null, 187));
+		flightsToSydney.add(new Flight("Sydney", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 189));
+		flightsToSydney.add(new Flight("Sydney", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 145));
+		flightsToSydney.add(new Flight("Melbourne", "Sydney", "2022/08/10 10:30", "2022/08/10 12:05", null, 154));
+		flightsToSydney.add(new Flight("Melbourne", "Adelaide", "2022/08/10 10:30", "2022/08/10 12:05", null, 178));
+		flightsToSydney.add(new Flight("Melbourne", "Perth", "2022/08/10 10:30", "2022/08/10 12:05", null, 123));
 		
 		
 		List<Flight> firstPlaneFlights = new ArrayList<Flight>();
